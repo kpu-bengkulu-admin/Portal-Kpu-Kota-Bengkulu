@@ -2,18 +2,16 @@ import streamlit as st
 from datetime import datetime
 import base64
 
-# =====================================================
 # CONFIG
-# =====================================================
+
 st.set_page_config(
     page_title="Portal Resmi KPU Kota Bengkulu",
     page_icon="logo_kpu.png",
     layout="wide"
 )
 
-# =====================================================
 # HELPER
-# =====================================================
+
 def image_to_base64(path):
     with open(path, "rb") as f:
         return base64.b64encode(f.read()).decode()
@@ -21,14 +19,12 @@ def image_to_base64(path):
 logo_b64 = image_to_base64("logo_kpu.png")
 kantor_b64 = image_to_base64("kantor_kpu.jpg")
 
-# =====================================================
 # WAKTU
-# =====================================================
+
 now = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
 
-# =====================================================
 # CSS
-# =====================================================
+
 st.markdown(
     f"""
 <style>
@@ -152,9 +148,8 @@ header {{
     unsafe_allow_html=True
 )
 
-# =====================================================
 # HERO
-# =====================================================
+
 st.markdown(
     f"""
 <div class="hero">
@@ -190,9 +185,8 @@ Sistem Informasi Terintegrasi & Pelayanan Digital
     unsafe_allow_html=True
 )
 
-# =====================================================
 # FOTO KANTOR
-# =====================================================
+
 st.markdown(
     f"""
 <div style="
@@ -216,9 +210,8 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# =====================================================
 # KPI
-# =====================================================
+
 k1, k2, k3, k4 = st.columns(4)
 
 with k1:
@@ -253,9 +246,8 @@ with k4:
     </div>
     """, unsafe_allow_html=True)
 
-# =====================================================
 # TITLE
-# =====================================================
+
 st.markdown(
     """
 <div class="section-title">
@@ -265,9 +257,8 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# =====================================================
 # CARD FUNCTION
-# =====================================================
+
 def app_card(icon, title, desc, url, color):
 
     st.markdown(
@@ -294,9 +285,8 @@ def app_card(icon, title, desc, url, color):
         use_container_width=True
     )
 
-# =====================================================
 # MENU
-# =====================================================
+
 c1, c2, c3, c4 = st.columns(4)
 
 with c1:
@@ -334,9 +324,7 @@ with c4:
         "https://www.lapor.go.id/",
         "#9333ea"
     )
-# =====================================================
 # HUBUNGI KAMI
-# =====================================================
 
 st.markdown("---")
 
@@ -389,9 +377,8 @@ st.info(
     "📧 Email: (kpukotabengkulu@gmail.com)"
 )
 
-# =====================================================
 # FOOTER
-# =====================================================
+
 st.markdown(
     f"""
 <div class="footer">
@@ -409,18 +396,16 @@ import streamlit as st
 from datetime import datetime
 import base64
 
-# =====================================================
 # CONFIG
-# =====================================================
+
 st.set_page_config(
     page_title="Portal Resmi KPU Kota Bengkulu",
     page_icon="🏛️",
     layout="wide"
 )
 
-# =====================================================
 # HELPER
-# =====================================================
+
 def image_to_base64(path):
     with open(path, "rb") as f:
         return base64.b64encode(f.read()).decode()
@@ -428,14 +413,12 @@ def image_to_base64(path):
 logo_b64 = image_to_base64("logo_kpu.png")
 kantor_b64 = image_to_base64("kantor_kpu.jpg")
 
-# =====================================================
 # WAKTU
-# =====================================================
+
 now = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
 
-# =====================================================
 # CSS
-# =====================================================
+
 st.markdown(
     f"""
 <style>
@@ -559,9 +542,8 @@ header {{
     unsafe_allow_html=True
 )
 
-# =====================================================
 # HERO
-# =====================================================
+
 st.markdown(
     f"""
 <div class="hero">
@@ -597,9 +579,8 @@ Sistem Informasi Terintegrasi & Pelayanan Digital
     unsafe_allow_html=True
 )
 
-# =====================================================
 # FOTO KANTOR
-# =====================================================
+
 st.markdown(
     f"""
 <div style="
@@ -623,9 +604,8 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# =====================================================
 # KPI
-# =====================================================
+
 k1, k2, k3, k4 = st.columns(4)
 
 with k1:
@@ -660,9 +640,8 @@ with k4:
     </div>
     """, unsafe_allow_html=True)
 
-# =====================================================
 # TITLE
-# =====================================================
+
 st.markdown(
     """
 <div class="section-title">
@@ -672,9 +651,8 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# =====================================================
 # CARD FUNCTION
-# =====================================================
+
 def app_card(icon, title, desc, url, color):
 
     st.markdown(
@@ -701,9 +679,8 @@ def app_card(icon, title, desc, url, color):
         use_container_width=True
     )
 
-# =====================================================
 # MENU
-# =====================================================
+
 c1, c2, c3, c4 = st.columns(4)
 
 with c1:
@@ -741,9 +718,8 @@ with c4:
         "https://www.lapor.go.id/",
         "#9333ea"
     )
-# =====================================================
+
 # HUBUNGI KAMI
-# =====================================================
 
 st.markdown("---")
 
@@ -796,9 +772,8 @@ st.info(
     "📧 Email: (kpukotabengkulu@gmail.com)"
 )
 
-# =====================================================
 # FOOTER
-# =====================================================
+
 st.markdown(
     f"""
 <div class="footer">
