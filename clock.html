@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+body {
+    margin:0;
+    font-family: Arial;
+}
+
+#header-clock {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 55px;
+    background: #0f172a;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 9999;
+}
+
+.right {
+    font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<div id="header-clock">
+    <div class="left">
+        🏛️ <b>PORTAL KPU KOTA BENGKULU</b>
+    </div>
+
+    <div class="right" id="clock"></div>
+</div>
+
+<script>
+function updateClock() {
+    const now = new Date();
+
+    const days = ["Minggu","Senin","Selasa","Rabu","Kamis","Jumat","Sabtu"];
+    const day = days[now.getDay()];
+
+    const date = now.toLocaleDateString('id-ID');
+    const time = now.toLocaleTimeString('id-ID');
+
+    document.getElementById("clock").innerHTML =
+        day + ", " + date + " | " + time;
+}
+
+setInterval(updateClock, 1000);
+updateClock();
+</script>
+
+</body>
+</html>
