@@ -811,5 +811,4 @@ Portal Sistem Informasi Terintegrasi & Pelayanan Digital<br><br>
 </div>
 """,
     unsafe_allow_html=True
->>>>>>> c55fb9e81035c5e8803938fbe57ac8dd627a1b7e
 )
