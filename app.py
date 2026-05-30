@@ -145,26 +145,40 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ================= HERO =================
-now = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
-
-st.markdown(f"""
+st.markdown(
+    f"""
 <div class="hero">
-    <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
 
-        <div>
-            {"<img src='data:image/png;base64," + logo_b64 + "' width='90'>" if logo_b64 else ""}
-        </div>
+<div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
 
-        <div>
-            <div class="hero-title">PORTAL RESMI KPU KOTA BENGKULU</div>
-            <div class="hero-sub">Sistem Informasi Terintegrasi & Pelayanan Digital</div>
-            <br>
-            🟢 Sistem Online &nbsp;&nbsp; ⚡ 4 Aplikasi Terhubung &nbsp;&nbsp; 🕒 {now}
-        </div>
-
-    </div>
+<div>
+<img src="data:image/png;base64,{logo_b64}" width="90">
 </div>
-""", unsafe_allow_html=True)
+
+<div>
+
+<div class="hero-title">
+PORTAL RESMI KPU KOTA BENGKULU
+</div>
+
+<div class="hero-sub">
+Sistem Informasi Terintegrasi & Pelayanan Digital
+</div>
+
+<br>
+
+🟢 Sistem Online &nbsp;&nbsp;&nbsp;
+⚡ 4 Aplikasi Terhubung &nbsp;&nbsp;&nbsp;
+🕒 {now}
+
+</div>
+
+</div>
+
+</div>
+""",
+    unsafe_allow_html=True
+)
 
 # ================= KANTOR =================
 if kantor_b64:
