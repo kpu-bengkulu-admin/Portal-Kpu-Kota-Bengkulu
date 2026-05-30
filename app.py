@@ -150,8 +150,9 @@ now = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
 st.markdown(f"""
 <div class="hero">
     <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
+
         <div>
-            <img src="data:image/png;base64,{logo_b64}" width="90">
+            {"<img src='data:image/png;base64," + logo_b64 + "' width='90'>" if logo_b64 else ""}
         </div>
 
         <div>
@@ -160,16 +161,21 @@ st.markdown(f"""
             <br>
             🟢 Sistem Online &nbsp;&nbsp; ⚡ 4 Aplikasi Terhubung &nbsp;&nbsp; 🕒 {now}
         </div>
+
     </div>
 </div>
 """, unsafe_allow_html=True)
 
 # ================= KANTOR =================
-st.markdown(f"""
-<div style="margin-top:20px;border-radius:20px;overflow:hidden;">
-    <img src="data:image/jpg;base64,{kantor_b64}" style="width:100%;height:320px;object-fit:cover;">
-</div>
-""", unsafe_allow_html=True)
+if kantor_b64:
+    st.markdown(f"""
+    <div style="margin-top:20px;border-radius:20px;overflow:hidden;">
+        <img src="data:image/jpg;base64,{kantor_b64}"
+        style="width:100%;height:320px;object-fit:cover;">
+    </div>
+    """, unsafe_allow_html=True)
+else:
+    st.warning("Gambar kantor tidak ditemukan (kantor_kpu.jpg)")
 
 # ================= KPI =================
 c1, c2, c3, c4 = st.columns(4)
