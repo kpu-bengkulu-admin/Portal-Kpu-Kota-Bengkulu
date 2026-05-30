@@ -181,7 +181,6 @@ Sistem Informasi Terintegrasi & Pelayanan Digital
 
 🟢 Sistem Online &nbsp;&nbsp;&nbsp;
 ⚡ 4 Aplikasi Terhubung &nbsp;&nbsp;&nbsp;
-🕒 {now}
 
 </div>
 
