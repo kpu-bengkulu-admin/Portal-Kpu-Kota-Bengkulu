@@ -88,12 +88,10 @@ st.markdown(
 
     <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
 
-        <!-- LOGO -->
         <div>
-            <img src="data:image/png;base64,{logo_b64}" width="90">
+            {"<img src='data:image/png;base64," + logo_b64 + "' width='90'>" if logo_b64 else ""}
         </div>
 
-        <!-- TEKS -->
         <div>
             <div class="hero-title">PORTAL RESMI KPU KOTA BENGKULU</div>
             <div class="hero-sub">Sistem Informasi Terintegrasi & Pelayanan Digital</div>
