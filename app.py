@@ -82,20 +82,31 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ================= HERO =================
-st.markdown(f"""
+st.markdown(
+    f"""
 <div class="hero">
-    <div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap;">
-        <img src="data:image/png;base64,{logo_b64}" width="90">
 
+    <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
+
+        <!-- LOGO -->
+        <div>
+            <img src="data:image/png;base64,{logo_b64}" width="90">
+        </div>
+
+        <!-- TEKS -->
         <div>
             <div class="hero-title">PORTAL RESMI KPU KOTA BENGKULU</div>
             <div class="hero-sub">Sistem Informasi Terintegrasi & Pelayanan Digital</div>
             <br>
             🟢 Online &nbsp;&nbsp; ⚡ 4 Aplikasi &nbsp;&nbsp; 🕒 {now}
         </div>
+
     </div>
+
 </div>
-""", unsafe_allow_html=True)
+""",
+    unsafe_allow_html=True
+)
 
 # ================= KANTOR =================
 st.markdown(f"""
