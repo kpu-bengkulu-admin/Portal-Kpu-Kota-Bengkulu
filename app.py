@@ -2,6 +2,7 @@ import streamlit as st
 from datetime import datetime
 import base64
 
+
 # =====================================================
 # CONFIG
 # =====================================================
@@ -151,6 +152,7 @@ header {{
 """,
     unsafe_allow_html=True
 )
+
 
 # =====================================================
 # HERO
