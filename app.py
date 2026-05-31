@@ -264,23 +264,29 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 # ================= KPI =================
-c1, c2, c3, c4, c5 = st.columns(5)
+# ================= KPI =================
 
-kpis = [
-    ("5", "Aplikasi"),
-    ("100%", "Online"),
-    ("24", "Jam Layanan"),
-    ("1", "Portal")
-]
+left, center, right = st.columns([1, 8, 1])
 
-for col, (num, label) in zip([c1, c2, c3, c4, c5], kpis):
-    with col:
-        st.markdown(f"""
-        <div class="kpi">
-            <div class="kpi-number">{num}</div>
-            <div class="kpi-label">{label}</div>
-        </div>
-        """, unsafe_allow_html=True)
+with center:
+
+    c1, c2, c3, c4 = st.columns(4)
+
+    kpis = [
+        ("5", "Aplikasi"),
+        ("100%", "Online"),
+        ("24", "Jam Layanan"),
+        ("1", "Portal")
+    ]
+
+    for col, (num, label) in zip([c1, c2, c3, c4], kpis):
+        with col:
+            st.markdown(f"""
+            <div class="kpi">
+                <div class="kpi-number">{num}</div>
+                <div class="kpi-label">{label}</div>
+            </div>
+            """, unsafe_allow_html=True)
 
 # ================= TITLE =================
 st.markdown("""
