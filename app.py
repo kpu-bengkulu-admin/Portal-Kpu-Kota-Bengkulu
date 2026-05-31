@@ -63,6 +63,20 @@ components.html(
     height=45
 )
 
+st.markdown("""
+<div style="
+background:#dc2626;
+color:white;
+padding:8px;
+border-radius:10px;
+font-weight:bold;
+">
+<marquee>
+Selamat Datang di Portal Resmi KPU Kota Bengkulu • Pelayanan Digital Terintegrasi • Transparan • Akuntabel • Profesional
+</marquee>
+</div>
+""", unsafe_allow_html=True)
+
 # =====================================================
 # HELPER
 # =====================================================
