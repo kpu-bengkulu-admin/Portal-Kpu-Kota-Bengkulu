@@ -277,22 +277,25 @@ st.markdown("""
 
 # ================= CARD =================
 def app_card(icon, title, desc, url, color):
-    st.markdown(f"""
-    <div style="
-        background:white;
-        padding:20px;
-        border-radius:20px;
-        border-top:6px solid {color};
-        box-shadow:0 5px 15px rgba(0,0,0,0.1);
-        min-height:220px;
-    ">
-        <h1>{icon}</h1>
-        <h3>{title}</h3>
-        <p>{desc}</p>
-    </div>
-    """, unsafe_allow_html=True)
 
-    st.link_button(f"🔗 Buka {title}", url, use_container_width=True)
+    st.markdown(
+        f"""
+        <div class="card" style="
+            border-top:6px solid {color};
+        ">
+            <h1>{icon}</h1>
+            <h3>{title}</h3>
+            <p>{desc}</p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+    st.link_button(
+        f"🔗 Buka {title}",
+        url,
+        use_container_width=True
+    )
 
 # ================= MENU =================
 c1, c2, c3, c4 = st.columns(4)
