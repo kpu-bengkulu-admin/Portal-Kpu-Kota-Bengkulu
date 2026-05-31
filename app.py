@@ -27,7 +27,7 @@ components.html(
         text-align:center;
         font-weight:bold;
         font-size:16px;
-        margin-bottom:8px;
+        margin-bottom:15px;
     }
     </style>
 
