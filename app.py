@@ -72,7 +72,7 @@ border-radius:10px;
 font-weight:bold;
 ">
 <marquee>
-Selamat Datang di Portal Resmi KPU Kota Bengkulu • Pelayanan Digital Terintegrasi • Transparan • Akuntabel • Profesional
+Selamat Datang di Portal Resmi KPU Kota Bengkulu • Pelayanan Digital Terintegrasi • Transparan • Akuntabel • Profesional • Siap Melayani
 </marquee>
 </div>
 """, unsafe_allow_html=True)
