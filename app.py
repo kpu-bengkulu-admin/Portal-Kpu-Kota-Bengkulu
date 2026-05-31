@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 from datetime import datetime
 import base64
 
@@ -8,8 +9,58 @@ import base64
 # =====================================================
 st.set_page_config(
     page_title="Portal Resmi KPU Kota Bengkulu",
-    page_icon="🏛️",
+    page_icon="logo_kpu.png",
     layout="wide"
+)
+components.html(
+    """
+    <div id="clockbar">
+        <span id="clock"></span>
+    </div>
+
+    <style>
+    #clockbar{
+        background:#0f172a;
+        color:white;
+        padding:10px 20px;
+        border-radius:12px;
+        text-align:center;
+        font-weight:bold;
+        font-size:16px;
+        margin-bottom:15px;
+    }
+    </style>
+
+    <script>
+    function updateClock(){
+
+        const now = new Date();
+
+        const hari = [
+            "Minggu",
+            "Senin",
+            "Selasa",
+            "Rabu",
+            "Kamis",
+            "Jumat",
+            "Sabtu"
+        ];
+
+        const teks =
+            hari[now.getDay()] +
+            ", " +
+            now.toLocaleDateString("id-ID") +
+            " | " +
+            now.toLocaleTimeString("id-ID");
+
+        document.getElementById("clock").innerHTML = teks;
+    }
+
+    updateClock();
+    setInterval(updateClock,1000);
+    </script>
+    """,
+    height=45
 )
 
 # =====================================================
