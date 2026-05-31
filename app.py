@@ -22,12 +22,12 @@ components.html(
     #clockbar{
         background:#0f172a;
         color:white;
-        padding:10px 20px;
+        padding:6px 20px;
         border-radius:12px;
         text-align:center;
         font-weight:bold;
         font-size:16px;
-        margin-bottom:15px;
+        margin-bottom:2px;
     }
     </style>
 
@@ -60,7 +60,7 @@ components.html(
     setInterval(updateClock,1000);
     </script>
     """,
-    height=32
+    height=45
 )
 
 # =====================================================
