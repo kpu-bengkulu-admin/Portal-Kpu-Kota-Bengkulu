@@ -327,8 +327,8 @@ with c3:
              "https://cekdptonline.kpu.go.id/","#16a34a")
 
 with c4:
-    app_card("📋","CEK DPT","Data pemilih nasional",
-             "https://docs.google.com/forms/d/1  _YmguSpM4Gj26K2ItHh2fDqeQDFHRCaWzfjLlEZ_8E4/edit/","#16a34a")
+    app_card("📋","PINDAH MEMILIH (PDPB) 2025","Pemutakhiran Data Pemilih 2025",
+             "https://forms.gle/mPL8zT362prjJSVg9/","#1e3a8a")
 
 with c5:
     app_card("📨","SP4N LAPOR","Aspirasi masyarakat",
