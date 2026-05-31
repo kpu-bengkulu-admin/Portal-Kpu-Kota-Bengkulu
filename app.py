@@ -22,12 +22,12 @@ components.html(
     #clockbar{
         background:#0f172a;
         color:white;
-        padding:6px 20px;
+        padding:10px 20px;
         border-radius:12px;
         text-align:center;
         font-weight:bold;
         font-size:16px;
-        margin-bottom:2px;
+        margin-bottom:15px;
     }
     </style>
 
