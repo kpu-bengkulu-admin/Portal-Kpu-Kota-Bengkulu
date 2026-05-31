@@ -432,12 +432,21 @@ with c5:
         use_container_width=True
     )
 
-st.info(
-    "📍 Kantor KPU Kota Bengkulu | "
-    "☎️ Telp: (0736 730403) | "
-    "📧 Email: (kpukotabengkulu@gmail.com)"
-)
-
+st.markdown("""
+<div style="
+    background:#dbeafe;
+    padding:16px;
+    border-radius:12px;
+    text-align:center;
+    color:#1e3a8a;
+    font-size:18px;
+    font-weight:500;
+">
+📍 Kantor KPU Kota Bengkulu |
+☎️ Telp: (0736 730403) |
+📧 Email: kpukotabengkulu@gmail.com
+</div>
+""", unsafe_allow_html=True)
 
 # ================= FOOTER =================
 st.markdown(f"""
