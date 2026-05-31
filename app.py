@@ -137,7 +137,7 @@ header {{
     );
 
     border-radius:20px;
-    padding:20px 30px;
+    padding:10px 20px;
     color:white;
     box-shadow:0 15px 35px rgba(0,0,0,.15);
 }}
