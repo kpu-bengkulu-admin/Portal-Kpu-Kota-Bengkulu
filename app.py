@@ -311,28 +311,56 @@ def app_card(icon, title, desc, url, color):
         use_container_width=True
     )
 
-# ================= MENU =================
-c1, c2, c3, c4, c5 = st.columns(5)
+# ================= MENU BARIS 1 =================
+c1, c2, c3, c4 = st.columns(4)
 
 with c1:
-    app_card("📊","E-Kinerja","Monitoring kinerja pegawai",
-             "https://aplikasi-kinerja-kpu-kota-bengkulu.streamlit.app","#2563eb")
+    app_card(
+        "📊",
+        "E-Kinerja",
+        "Monitoring kinerja pegawai",
+        "https://aplikasi-kinerja-kpu-kota-bengkulu.streamlit.app",
+        "#2563eb"
+    )
 
 with c2:
-    app_card("🗳️","BENGKULU POINT","Pelaporan Pencatutan partai politik",
-             "https://kpu-kota-bengkulu-point.base44.app/","#dc2626")
+    app_card(
+        "🗳️",
+        "BENGKULU POINT",
+        "Pelaporan Pencatutan partai politik",
+        "https://kpu-kota-bengkulu-point.base44.app/",
+        "#dc2626"
+    )
 
 with c3:
-    app_card("📋","CEK DPT","Data pemilih nasional",
-             "https://cekdptonline.kpu.go.id/","#16a34a")
+    app_card(
+        "📋",
+        "CEK DPT",
+        "Data pemilih nasional",
+        "https://cekdptonline.kpu.go.id/",
+        "#16a34a"
+    )
 
 with c4:
-    app_card("📋","PINDAH MEMILIH (PDPB) 2025","Pemutakhiran Data Pemilih 2025",
-             "https://forms.gle/mPL8zT362prjJSVg9/","#1e3a8a")
+    app_card(
+        "🗂️",
+        "PINDAH MEMILIH",
+        "Pemutakhiran Data Pemilih 2025",
+        "https://forms.gle/sBLgbjKQFobKusdKA/",
+        "#1e40af"
+    )
 
-with c5:
-    app_card("📨","SP4N LAPOR","Aspirasi masyarakat",
-             "https://www.lapor.go.id/","#9333ea")
+# ================= MENU BARIS 2 =================
+c1, c2, c3, c4 = st.columns(4)
+
+with c1:
+    app_card(
+        "📨",
+        "SP4N LAPOR",
+        "Aspirasi masyarakat",
+        "https://www.lapor.go.id/",
+        "#9333ea"
+    )
 
 
 # HUBUNGI KAMI
