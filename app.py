@@ -343,18 +343,6 @@ with c3:
 
 with c4:
     app_card(
-        "🗂️",
-        "PINDAH MEMILIH",
-        "Pemutakhiran Data Pemilih Berkelanjutan Tahun 2025",
-        "https://forms.gle/sBLgbjKQFobKusdKA/",
-        "#1e40af"
-    )
-
-# ================= MENU BARIS 2 =================
-c1, c2, c3, c4 = st.columns(4)
-
-with c1:
-    app_card(
         "📨",
         "SP4N LAPOR",
         "Aspirasi masyarakat",
@@ -362,6 +350,17 @@ with c1:
         "#9333ea"
     )
 
+# ================= MENU BARIS 2 =================
+c1, c2, c3, c4 = st.columns(4)
+
+with c1:
+    app_card(
+        "🗂️",
+        "PINDAH MEMILIH",
+        "Pemutakhiran Data Pemilih Berkelanjutan Tahun 2025",
+        "https://forms.gle/sBLgbjKQFobKusdKA/",
+        "#1e40af"
+    )
 
 # HUBUNGI KAMI
 
