@@ -137,7 +137,7 @@ header {{
     );
 
     border-radius:25px;
-    padding:35px;
+    padding:20px 30px;
     color:white;
     box-shadow:0 15px 35px rgba(0,0,0,.15);
 }}
@@ -263,7 +263,6 @@ st.markdown(f"""
 </div>
 """, unsafe_allow_html=True)
 
-# ================= KPI =================
 # ================= KPI =================
 
 left, center, right = st.columns([1, 8, 1])
