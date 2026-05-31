@@ -65,7 +65,7 @@ components.html(
 
 st.markdown("""
 <div style="
-background:#1e3a8a;
+background:#dc2626;
 color:white;
 padding:8px;
 border-radius:10px;
