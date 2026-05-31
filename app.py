@@ -273,7 +273,7 @@ with center:
     c1, c2, c3, c4 = st.columns(4)
 
     kpis = [
-        ("5", "Aplikasi"),
+        ("6", "Aplikasi"),
         ("100%", "Online"),
         ("24", "Jam Layanan"),
         ("1", "Portal")
@@ -367,6 +367,16 @@ with c1:
         "https://forms.gle/sBLgbjKQFobKusdKA/",
         "#1e40af"
     )
+
+with c2:
+    app_card(
+        "📋",
+        "SURVEI KEPUASAN MASYARAKAT (SKM)",
+        "Kuesioner Survei Kepuasan Masyarakat pada Unit Layanan KPU Kota Bengkulu",
+        "https://forms.gle/YErvV9ArS9M8hZVb9/",
+        "#f59e0b"
+    )
+
 
 # HUBUNGI KAMI
 
