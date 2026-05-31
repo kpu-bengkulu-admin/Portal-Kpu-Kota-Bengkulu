@@ -273,7 +273,7 @@ with center:
     c1, c2, c3, c4 = st.columns(4)
 
     kpis = [
-        ("6", "Aplikasi"),
+        ("7", "Aplikasi"),
         ("100%", "Online"),
         ("24", "Jam Layanan"),
         ("1", "Portal")
@@ -362,21 +362,29 @@ c1, c2, c3, c4 = st.columns(4)
 with c1:
     app_card(
         "🗂️",
-        "PINDAH MEMILIH",
-        "Pemutakhiran Data Pemilih Berkelanjutan Tahun 2025",
+        "PINDAH MEMILIH 2025",
+        "Pemutakhiran Data Pemilih Berkelanjutan (PDPB) Tahun 2025",
         "https://forms.gle/sBLgbjKQFobKusdKA/",
         "#1e40af"
     )
 
 with c2:
     app_card(
-        "📋",
-        "SURVEI KEPUASAN MASYARAKAT (SKM)",
+        "⭐",
+        "SKM",
         "Kuesioner Survei Kepuasan Masyarakat pada Unit Layanan KPU Kota Bengkulu",
         "https://forms.gle/YErvV9ArS9M8hZVb9/",
         "#f59e0b"
     )
 
+with c3:
+    app_card(
+        "🗂️",
+        "PINDAH MEMILIH 2026",
+        "Pemutakhiran Data Pemilih Berkelanjutan (PDPB) Tahun 2026",
+        "https://form.jotform.com/260114453918455/",
+        "#0d9488"
+    )
 
 # HUBUNGI KAMI
 
