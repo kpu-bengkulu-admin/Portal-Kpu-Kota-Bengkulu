@@ -245,7 +245,7 @@ Sistem Informasi Terintegrasi & Pelayanan Digital
 <br>
 
 🟢 Sistem Online &nbsp;&nbsp;&nbsp;
-⚡ 4 Aplikasi Terhubung &nbsp;&nbsp;&nbsp;
+⚡ 5 Aplikasi Terhubung &nbsp;&nbsp;&nbsp;
 
 </div>
 
@@ -264,16 +264,16 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 # ================= KPI =================
-c1, c2, c3, c4 = st.columns(4)
+c1, c2, c3, c4, c5 = st.columns(5)
 
 kpis = [
-    ("4", "Aplikasi"),
+    ("5", "Aplikasi"),
     ("100%", "Online"),
     ("24", "Jam Layanan"),
     ("1", "Portal")
 ]
 
-for col, (num, label) in zip([c1, c2, c3, c4], kpis):
+for col, (num, label) in zip([c1, c2, c3, c4, c5], kpis):
     with col:
         st.markdown(f"""
         <div class="kpi">
@@ -312,7 +312,7 @@ def app_card(icon, title, desc, url, color):
     )
 
 # ================= MENU =================
-c1, c2, c3, c4 = st.columns(4)
+c1, c2, c3, c4, c5 = st.columns(5)
 
 with c1:
     app_card("📊","E-Kinerja","Monitoring kinerja pegawai",
@@ -327,6 +327,10 @@ with c3:
              "https://cekdptonline.kpu.go.id/","#16a34a")
 
 with c4:
+    app_card("📋","CEK DPT","Data pemilih nasional",
+             "https://docs.google.com/forms/d/1  _YmguSpM4Gj26K2ItHh2fDqeQDFHRCaWzfjLlEZ_8E4/edit/","#16a34a")
+
+with c5:
     app_card("📨","SP4N LAPOR","Aspirasi masyarakat",
              "https://www.lapor.go.id/","#9333ea")
 
