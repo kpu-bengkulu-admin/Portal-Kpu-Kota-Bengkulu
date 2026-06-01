@@ -245,7 +245,7 @@ Sistem Informasi Terintegrasi & Pelayanan Digital
 <br>
 
 🟢 Sistem Online &nbsp;&nbsp;&nbsp;
-⚡ 5 Aplikasi Terhubung &nbsp;&nbsp;&nbsp;
+⚡ 7 Aplikasi Terhubung &nbsp;&nbsp;&nbsp;
 
 </div>
 
