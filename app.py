@@ -72,7 +72,7 @@ border-radius:10px;
 font-weight:bold;
 ">
 <marquee>
-Selamat Datang di Portal Resmi KPU Kota Bengkulu • Pelayanan Digital Terintegrasi • Transparan • Akuntabel • Profesional • Siap Melayani
+Selamat Datang di Portal Resmi KPU Kota Bengkulu POINT • Pengaduan Online • Pelayanan Digital Terintegrasi • Transparan • Akuntabel • Profesional • Siap Melayani
 </marquee>
 </div>
 """, unsafe_allow_html=True)
@@ -235,11 +235,11 @@ st.markdown(
 <div>
 
 <div class="hero-title">
-PORTAL RESMI KPU KOTA BENGKULU
+PORTAL RESMI KPU KOTA BENGKULU POINT
 </div>
 
 <div class="hero-sub">
-Sistem Informasi Terintegrasi & Pelayanan Digital
+Pengaduan Online & Pelayanan Informasi Terintegrasi
 </div>
 
 <br>
@@ -290,7 +290,7 @@ with center:
 # ================= TITLE =================
 st.markdown("""
 <div class="section-title">
-🚀 Akses Aplikasi Terintegrasi
+🚀 Akses Pengaduan dan Aplikasi Pelayanan Terintegrasi
 </div>
 """, unsafe_allow_html=True)
 
@@ -331,7 +331,7 @@ with c1:
 with c2:
     app_card(
         "🗳️",
-        "BENGKULU POINT",
+        "ADU ONLINE",
         "Pelaporan Pencatutan partai politik",
         "https://kpu-kota-bengkulu-point.base44.app/",
         "#dc2626"
@@ -452,7 +452,7 @@ st.markdown("""
 st.markdown(f"""
 <div class="footer">
 <b>KOMISI PEMILIHAN UMUM KOTA BENGKULU</b><br>
-Portal Sistem Informasi Terintegrasi<br><br>
+Portal Pengaduan Online dan Sistem Pelayanan Informasi Terintegrasi<br><br>
 © {datetime.now().year} KPU Kota Bengkulu
 </div>
 """, unsafe_allow_html=True)
