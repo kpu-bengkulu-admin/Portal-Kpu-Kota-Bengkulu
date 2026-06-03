@@ -5,6 +5,7 @@ import base64
 import os
 import requests
 from bs4 import BeautifulSoup
+import json
 
 # =====================================================
 # CONFIG
@@ -284,14 +285,6 @@ header {{
 .card:hover {{
     transform:translateY(-8px);
 }}
-.news-hero {{
-    background:white;
-    border-radius:25px;
-    padding:20px;
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
-    margin-top:25px;
-    margin-bottom:25px;
-}}
 
 .footer {{
     text-align:center;
@@ -351,77 +344,163 @@ st.markdown(f"""
 </div>
 """, unsafe_allow_html=True)
 
-# ================= HERO NEWS =================
+# ================= NEWS CAROUSEL =================
 
 berita = get_kpu_news()
 
 if berita:
 
-    st.markdown("""
-    <div class="section-title">
-        📰 BERITA TERBARU KPU KOTA BENGKULU
-    </div>
-    """, unsafe_allow_html=True)
+    news_json = json.dumps(berita)
 
-    if "news_index" not in st.session_state:
-        st.session_state.news_index = 0
+    components.html(
+        f"""
+        <div style="margin-top:25px;">
 
-    current = berita[st.session_state.news_index]
-
-    st.markdown('<div class="news-hero">', unsafe_allow_html=True)
-
-    col1, col2 = st.columns([1.3,1])
-
-    with col1:
-        st.image(
-            current["gambar"],
-            use_container_width=True
-        )
-
-    with col2:
-
-        st.markdown(
-            f"""
-            <h2 style='color:#1e3a8a'>
-            {current['judul']}
+            <h2 style="
+                text-align:center;
+                color:#0f172a;
+                margin-bottom:25px;
+                font-weight:800;
+            ">
+            📰 BERITA TERBARU KPU KOTA BENGKULU
             </h2>
-            """,
-            unsafe_allow_html=True
-        )
 
-        st.write(current["ringkasan"])
+            <div id="news-card"
+                 style="
+                    background:white;
+                    border-radius:25px;
+                    overflow:hidden;
+                    box-shadow:0 10px 25px rgba(0,0,0,.10);
+                 ">
 
-        st.link_button(
-            "📖 Baca Selengkapnya",
-            current["link"],
-            use_container_width=True
-        )
+                <div style="
+                    display:flex;
+                    flex-wrap:wrap;
+                ">
 
-    st.markdown("</div>", unsafe_allow_html=True)
+                    <div style="
+                        flex:1;
+                        min-width:450px;
+                    ">
 
-    indikator = ""
+                        <img
+                            id="news-img"
+                            src=""
+                            style="
+                                width:100%;
+                                height:500px;
+                                object-fit:cover;
+                            ">
+                    </div>
 
-    for i in range(len(berita)):
+                    <div style="
+                        flex:1;
+                        min-width:400px;
+                        padding:35px;
+                    ">
 
-        if i == st.session_state.news_index:
-            indikator += "🔵 "
-        else:
-            indikator += "⚪ "
+                        <h2 id="news-title"
+                            style="
+                                color:#1e3a8a;
+                                margin-bottom:20px;
+                            ">
+                        </h2>
 
-    st.markdown(
-        f"<div style='text-align:center;font-size:24px'>{indikator}</div>",
-        unsafe_allow_html=True
+                        <p id="news-desc"
+                           style="
+                                font-size:18px;
+                                line-height:1.8;
+                                color:#334155;
+                           ">
+                        </p>
+
+                        <a
+                            id="news-link"
+                            href="#"
+                            target="_blank"
+                            style="
+                                display:inline-block;
+                                background:#dc2626;
+                                color:white;
+                                padding:12px 20px;
+                                border-radius:10px;
+                                text-decoration:none;
+                                margin-top:15px;
+                            ">
+                            📖 Baca Selengkapnya
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div
+                id="dots"
+                style="
+                    text-align:center;
+                    margin-top:15px;
+                    font-size:24px;
+                ">
+            </div>
+
+        </div>
+
+        <script>
+
+        const berita = {news_json};
+
+        let index = 0;
+
+        function tampilkanBerita() {{
+
+            document.getElementById("news-img")
+                .src = berita[index].gambar;
+
+            document.getElementById("news-title")
+                .innerHTML = berita[index].judul;
+
+            document.getElementById("news-desc")
+                .innerHTML = berita[index].ringkasan;
+
+            document.getElementById("news-link")
+                .href = berita[index].link;
+
+            let dots = "";
+
+            for(let i=0;i<berita.length;i++) {{
+
+                if(i===index)
+                    dots += "🔵 ";
+
+                else
+                    dots += "⚪ ";
+
+            }}
+
+            document.getElementById("dots")
+                .innerHTML = dots;
+        }}
+
+        tampilkanBerita();
+
+        setInterval(() => {{
+
+            index++;
+
+            if(index >= berita.length)
+                index = 0;
+
+            tampilkanBerita();
+
+        }}, 5000);
+
+        </script>
+        """,
+        height=720,
+        scrolling=False
     )
-
-    import time
-
-    time.sleep(5)
-
-    st.session_state.news_index = (
-        st.session_state.news_index + 1
-    ) % len(berita)
-
-    st.rerun()
 
 # ================= KPI =================
 
