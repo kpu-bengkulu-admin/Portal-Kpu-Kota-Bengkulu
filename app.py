@@ -471,7 +471,7 @@ if berita:
 
                         <p id="news-desc"
                            style="
-                                font-size:24px;
+                                font-size:15px;
                                 line-height:1.8;
                                 color:#334155;
                            ">
