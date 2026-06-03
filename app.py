@@ -459,19 +459,19 @@ if berita:
                     <div style="
                         flex:1;
                         min-width:400px;
-                        padding:35px;
+                        padding:20px;
                     ">
 
                         <h2 id="news-title"
                             style="
                                 color:#1e3a8a;
-                                margin-bottom:20px;
+                                margin-bottom:15px;
                             ">
                         </h2>
 
                         <p id="news-desc"
                            style="
-                                font-size:18px;
+                                font-size:24px;
                                 line-height:1.8;
                                 color:#334155;
                            ">
