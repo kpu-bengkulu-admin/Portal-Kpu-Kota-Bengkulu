@@ -110,7 +110,7 @@ kantor_b64 = image_to_base64("kantor_kpu.jpg")
 # =====================================================
 # CUACA BENGKULU
 # =====================================================
-@st.cache_data(ttl=1800)
+@st.cache_data(ttl=3600)
 def get_weather():
 
     try:
@@ -119,26 +119,26 @@ def get_weather():
             "https://api.open-meteo.com/v1/forecast"
             "?latitude=-3.8004"
             "&longitude=102.2655"
-            "&current=temperature_2m,wind_speed_10m"
+            "&current_weather=true"
         )
 
-        response = requests.get(
-            url,
-            timeout=10
-        )
+        r = requests.get(url, timeout=10)
 
-        response.raise_for_status()
+        if r.status_code != 200:
+            return None
 
-        data = response.json()
+        data = r.json()
 
         return {
-            "temp": data["current"]["temperature_2m"],
-            "wind": data["current"]["wind_speed_10m"]
+            "temp": data["current_weather"]["temperature"],
+            "wind": data["current_weather"]["windspeed"]
         }
 
     except Exception as e:
 
-        return str(e)
+        print(e)
+
+        return None
 
 # =====================================================
 # WAKTU
@@ -319,26 +319,23 @@ st.markdown(f"""
 # ================= CUACA =================
 
 weather = get_weather()
-st.write(weather)
 
-if weather:
+if weather is not None:
 
-    st.markdown(f"""
+else:
+
+    st.markdown("""
     <div style="
-        background:white;
+        background:#fff7ed;
         padding:18px;
         border-radius:18px;
         text-align:center;
         margin-top:20px;
         margin-bottom:20px;
-        box-shadow:0 5px 15px rgba(0,0,0,.08);
-        font-size:18px;
+        color:#9a3412;
+        font-weight:bold;
     ">
-        🌤️ <b>Cuaca Kota Bengkulu</b>
-        &nbsp;&nbsp;|&nbsp;&nbsp;
-        🌡️ {weather['temp']}°C
-        &nbsp;&nbsp;|&nbsp;&nbsp;
-        💨 {weather['wind']} km/jam
+        ⚠️ Data cuaca sementara tidak tersedia
     </div>
     """, unsafe_allow_html=True)
 
