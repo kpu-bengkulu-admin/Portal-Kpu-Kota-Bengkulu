@@ -107,6 +107,34 @@ def image_to_base64(path):
 logo_b64 = image_to_base64("logo_kpu.png")
 kantor_b64 = image_to_base64("kantor_kpu.jpg")
 
+# =====================================================
+# CUACA BENGKULU
+# =====================================================
+@st.cache_data(ttl=1800)
+def get_weather():
+
+    try:
+
+        url = (
+            "https://api.open-meteo.com/v1/forecast"
+            "?latitude=-3.8004"
+            "&longitude=102.2655"
+            "&current_weather=true"
+        )
+
+        data = requests.get(
+            url,
+            timeout=10
+        ).json()
+
+        return {
+            "temp": data["current_weather"]["temperature"],
+            "wind": data["current_weather"]["windspeed"]
+        }
+
+    except:
+        return None
+
 @st.cache_data(ttl=1800)
 def get_kpu_news():
 
