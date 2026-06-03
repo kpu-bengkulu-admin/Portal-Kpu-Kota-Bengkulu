@@ -375,6 +375,7 @@ st.markdown(f"""
 # ================= CUACA =================
 
 weather = get_weather()
+st.write(weather)
 
 if weather:
 
