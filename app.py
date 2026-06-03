@@ -105,7 +105,6 @@ def image_to_base64(path):
         return base64.b64encode(f.read()).decode()
 
 logo_b64 = image_to_base64("logo_kpu.png")
-kantor_b64 = image_to_base64("kantor_kpu.jpg")
 
 # =====================================================
 # CUACA BENGKULU
@@ -365,13 +364,6 @@ Pengaduan Online & Pelayanan Informasi Terintegrasi
     unsafe_allow_html=True
 )
 
-# ================= KANTOR =================
-st.markdown(f"""
-<div style="margin-top:20px;border-radius:20px;overflow:hidden;">
-    <img src="data:image/jpg;base64,{kantor_b64}" style="width:100%;height:320px;object-fit:cover;">
-</div>
-""", unsafe_allow_html=True)
-
 # ================= CUACA =================
 
 weather = get_weather()
@@ -459,7 +451,7 @@ if berita:
                             src=""
                             style="
                                 width:100%;
-                                height:500px;
+                                height:280px;
                                 object-fit:cover;
                             ">
                     </div>
@@ -569,8 +561,8 @@ if berita:
 
         </script>
         """,
-        height=720,
-        scrolling=False
+        height=850,
+        scrolling=true
     )
 
 # ================= KPI =================
