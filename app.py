@@ -3,6 +3,8 @@ import streamlit.components.v1 as components
 from datetime import datetime
 import base64
 import os
+import requests
+from bs4 import BeautifulSoup
 
 # =====================================================
 # CONFIG
@@ -103,6 +105,67 @@ def image_to_base64(path):
 
 logo_b64 = image_to_base64("logo_kpu.png")
 kantor_b64 = image_to_base64("kantor_kpu.jpg")
+
+@st.cache_data(ttl=1800)
+def get_kpu_news():
+
+    try:
+
+        url = "https://kota-bengkulu.kpu.go.id/"
+
+        html = requests.get(
+            url,
+            headers={
+                "User-Agent":"Mozilla/5.0"
+            },
+            timeout=20
+        ).text
+
+        soup = BeautifulSoup(html, "lxml")
+
+        berita = []
+
+        rows = soup.find_all("div", class_="content")
+
+        for row in rows:
+
+            try:
+
+                judul = row.find("h4").get_text(strip=True)
+
+                ringkasan = row.find("p").get_text(
+                    strip=True
+                )[:250]
+
+                link = row.find(
+                    "a",
+                    href=True
+                )["href"]
+
+                parent = row.parent
+
+                gambar = parent.find("img")
+
+                img_url = ""
+
+                if gambar:
+                    img_url = gambar.get("src")
+
+                berita.append({
+                    "judul": judul,
+                    "ringkasan": ringkasan,
+                    "link": link,
+                    "gambar": img_url
+                })
+
+            except:
+                pass
+
+        return berita[:5]
+
+    except:
+
+        return []
 
 # =====================================================
 # WAKTU
@@ -279,6 +342,151 @@ st.markdown(f"""
     <img src="data:image/jpg;base64,{kantor_b64}" style="width:100%;height:320px;object-fit:cover;">
 </div>
 """, unsafe_allow_html=True)
+
+# ================= BERITA KPU =================
+
+berita = get_kpu_news()
+st.write("Jumlah berita:", len(berita))
+st.write(berita)
+
+if berita:
+
+    cards = ""
+
+    for item in berita:
+
+        cards += f"""
+
+        <div class="news-card">
+
+            <img
+                src="{item['gambar']}"
+                class="news-img">
+
+            <div class="news-body">
+
+                <div class="news-title">
+                    {item['judul']}
+                </div>
+
+                <div class="news-desc">
+                    {item['ringkasan']}
+                </div>
+
+                <a
+                    href="{item['link']}"
+                    target="_blank"
+                    class="news-btn">
+
+                    Baca Selengkapnya
+
+                </a>
+
+            </div>
+
+        </div>
+
+        """
+
+    st.markdown(f"""
+
+    <style>
+
+    .news-wrapper{{
+        overflow:hidden;
+        width:100%;
+        margin-top:25px;
+        margin-bottom:25px;
+    }}
+
+    .news-track{{
+        display:flex;
+        width:max-content;
+        animation:slideNews 60s linear infinite;
+    }}
+
+    .news-card{{
+        width:450px;
+        min-width:450px;
+
+        background:white;
+
+        border-radius:20px;
+
+        overflow:hidden;
+
+        margin-right:25px;
+
+        box-shadow:
+        0 10px 25px rgba(0,0,0,.10);
+    }}
+
+    .news-img{{
+        width:100%;
+        height:260px;
+        object-fit:cover;
+    }}
+
+    .news-body{{
+        padding:20px;
+    }}
+
+    .news-title{{
+        font-size:20px;
+        font-weight:800;
+        color:#1e3a8a;
+        margin-bottom:10px;
+    }}
+
+    .news-desc{{
+        color:#475569;
+        height:100px;
+        overflow:hidden;
+        text-align:justify;
+    }}
+
+    .news-btn{{
+        display:inline-block;
+        margin-top:15px;
+        background:#dc2626;
+        color:white !important;
+        padding:10px 18px;
+        border-radius:10px;
+        text-decoration:none;
+    }}
+
+    @keyframes slideNews {{
+
+        0% {{
+            transform:translateX(0);
+        }}
+
+        100% {{
+            transform:translateX(-50%);
+        }}
+
+    }}
+
+    </style>
+
+    <div class="section-title">
+        📰 BERITA TERBARU KPU KOTA BENGKULU
+    </div>
+
+    <div class="news-wrapper">
+
+        <div class="news-track">
+
+            {cards}
+
+            {cards}
+
+        </div>
+
+    </div>
+
+    """,
+    unsafe_allow_html=True)
 
 # ================= KPI =================
 
