@@ -284,14 +284,14 @@ header {{
 .card:hover {{
     transform:translateY(-8px);
 }}
-.news-hero{
+.news-hero {{
     background:white;
     border-radius:25px;
     padding:20px;
     box-shadow:0 10px 25px rgba(0,0,0,.08);
     margin-top:25px;
     margin-bottom:25px;
-}
+}}
 
 .footer {{
     text-align:center;
