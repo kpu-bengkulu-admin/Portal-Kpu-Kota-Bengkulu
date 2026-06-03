@@ -561,7 +561,7 @@ if berita:
 
         </script>
         """,
-        height=850,
+        height=720,
         scrolling=True
     )
 
