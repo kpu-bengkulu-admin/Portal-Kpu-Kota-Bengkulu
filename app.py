@@ -374,7 +374,9 @@ st.markdown(f"""
 
 # ================= CUACA =================
 
+st.success("TES CUACA DIMULAI")
 weather = get_weather()
+st.success("TES CUACA SELESAI")
 st.write(weather)
 
 if weather:
