@@ -2,7 +2,7 @@ import streamlit as st
 import streamlit.components.v1 as components
 from datetime import datetime
 import base64
-
+import os
 
 # =====================================================
 # CONFIG
@@ -12,6 +12,23 @@ st.set_page_config(
     page_icon="logo_kpu.png",
     layout="wide"
 )
+# =====================================================
+# COUNTER PENGUNJUNG
+# =====================================================
+COUNTER_FILE = "counter.txt"
+
+if not os.path.exists(COUNTER_FILE):
+    with open(COUNTER_FILE, "w") as f:
+        f.write("0")
+
+with open(COUNTER_FILE, "r") as f:
+    total_pengunjung = int(f.read())
+
+total_pengunjung += 1
+
+with open(COUNTER_FILE, "w") as f:
+    f.write(str(total_pengunjung))
+
 components.html(
     """
     <div id="clockbar">
@@ -275,7 +292,7 @@ with center:
         ("7", "Aplikasi"),
         ("100%", "Online"),
         ("24", "Jam Layanan"),
-        ("1", "Portal")
+        (f"{total_pengunjung:,}", "Pengunjung")
     ]
 
     for col, (num, label) in zip([c1, c2, c3, c4], kpis):
@@ -453,6 +470,10 @@ st.markdown(f"""
 <div class="footer">
 <b>KOMISI PEMILIHAN UMUM KOTA BENGKULU</b><br>
 Portal Pengaduan Online dan Sistem Pelayanan Informasi Terintegrasi<br><br>
+
+👥 Total Pengunjung : <b>{total_pengunjung:,}</b><br><br>
+
+
 © {datetime.now().year} KPU Kota Bengkulu
 </div>
 """, unsafe_allow_html=True)
