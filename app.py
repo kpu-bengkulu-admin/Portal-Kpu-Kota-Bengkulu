@@ -284,6 +284,14 @@ header {{
 .card:hover {{
     transform:translateY(-8px);
 }}
+.news-hero{
+    background:white;
+    border-radius:25px;
+    padding:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    margin-top:25px;
+    margin-bottom:25px;
+}
 
 .footer {{
     text-align:center;
@@ -343,150 +351,77 @@ st.markdown(f"""
 </div>
 """, unsafe_allow_html=True)
 
-# ================= BERITA KPU =================
+# ================= HERO NEWS =================
 
 berita = get_kpu_news()
-st.write("Jumlah berita:", len(berita))
-st.write(berita)
 
 if berita:
 
-    cards = ""
-
-    for item in berita:
-
-        cards += f"""
-
-        <div class="news-card">
-
-            <img
-                src="{item['gambar']}"
-                class="news-img">
-
-            <div class="news-body">
-
-                <div class="news-title">
-                    {item['judul']}
-                </div>
-
-                <div class="news-desc">
-                    {item['ringkasan']}
-                </div>
-
-                <a
-                    href="{item['link']}"
-                    target="_blank"
-                    class="news-btn">
-
-                    Baca Selengkapnya
-
-                </a>
-
-            </div>
-
-        </div>
-
-        """
-
-    st.markdown(f"""
-
-    <style>
-
-    .news-wrapper{{
-        overflow:hidden;
-        width:100%;
-        margin-top:25px;
-        margin-bottom:25px;
-    }}
-
-    .news-track{{
-        display:flex;
-        width:max-content;
-        animation:slideNews 60s linear infinite;
-    }}
-
-    .news-card{{
-        width:450px;
-        min-width:450px;
-
-        background:white;
-
-        border-radius:20px;
-
-        overflow:hidden;
-
-        margin-right:25px;
-
-        box-shadow:
-        0 10px 25px rgba(0,0,0,.10);
-    }}
-
-    .news-img{{
-        width:100%;
-        height:260px;
-        object-fit:cover;
-    }}
-
-    .news-body{{
-        padding:20px;
-    }}
-
-    .news-title{{
-        font-size:20px;
-        font-weight:800;
-        color:#1e3a8a;
-        margin-bottom:10px;
-    }}
-
-    .news-desc{{
-        color:#475569;
-        height:100px;
-        overflow:hidden;
-        text-align:justify;
-    }}
-
-    .news-btn{{
-        display:inline-block;
-        margin-top:15px;
-        background:#dc2626;
-        color:white !important;
-        padding:10px 18px;
-        border-radius:10px;
-        text-decoration:none;
-    }}
-
-    @keyframes slideNews {{
-
-        0% {{
-            transform:translateX(0);
-        }}
-
-        100% {{
-            transform:translateX(-50%);
-        }}
-
-    }}
-
-    </style>
-
+    st.markdown("""
     <div class="section-title">
         📰 BERITA TERBARU KPU KOTA BENGKULU
     </div>
+    """, unsafe_allow_html=True)
 
-    <div class="news-wrapper">
+    if "news_index" not in st.session_state:
+        st.session_state.news_index = 0
 
-        <div class="news-track">
+    current = berita[st.session_state.news_index]
 
-            {cards}
+    st.markdown('<div class="news-hero">', unsafe_allow_html=True)
 
-            {cards}
+    col1, col2 = st.columns([1.3,1])
 
-        </div>
+    with col1:
+        st.image(
+            current["gambar"],
+            use_container_width=True
+        )
 
-    </div>
+    with col2:
 
-    """,
-    unsafe_allow_html=True)
+        st.markdown(
+            f"""
+            <h2 style='color:#1e3a8a'>
+            {current['judul']}
+            </h2>
+            """,
+            unsafe_allow_html=True
+        )
+
+        st.write(current["ringkasan"])
+
+        st.link_button(
+            "📖 Baca Selengkapnya",
+            current["link"],
+            use_container_width=True
+        )
+
+    st.markdown("</div>", unsafe_allow_html=True)
+
+    indikator = ""
+
+    for i in range(len(berita)):
+
+        if i == st.session_state.news_index:
+            indikator += "🔵 "
+        else:
+            indikator += "⚪ "
+
+    st.markdown(
+        f"<div style='text-align:center;font-size:24px'>{indikator}</div>",
+        unsafe_allow_html=True
+    )
+
+    import time
+
+    time.sleep(5)
+
+    st.session_state.news_index = (
+        st.session_state.news_index + 1
+    ) % len(berita)
+
+    st.rerun()
 
 # ================= KPI =================
 
