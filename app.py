@@ -322,6 +322,25 @@ weather = get_weather()
 
 if weather is not None:
 
+    st.markdown(f"""
+    <div style="
+        background:white;
+        padding:18px;
+        border-radius:18px;
+        text-align:center;
+        margin-top:20px;
+        margin-bottom:20px;
+        box-shadow:0 5px 15px rgba(0,0,0,.08);
+        font-size:18px;
+    ">
+        🌤️ <b>Cuaca Kota Bengkulu</b>
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        🌡️ {weather['temp']}°C
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        💨 {weather['wind']} km/jam
+    </div>
+    """, unsafe_allow_html=True)
+
 else:
 
     st.markdown("""
