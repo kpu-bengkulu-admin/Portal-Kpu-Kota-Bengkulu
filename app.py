@@ -119,7 +119,7 @@ def get_weather():
             "https://api.open-meteo.com/v1/forecast"
             "?latitude=-3.8004"
             "&longitude=102.2655"
-            "&current_weather=true"
+            "&current=temperature_2m,wind_speed_10m"
         )
 
         r = requests.get(url, timeout=10)
@@ -130,8 +130,8 @@ def get_weather():
         data = r.json()
 
         return {
-            "temp": data["current_weather"]["temperature"],
-            "wind": data["current_weather"]["windspeed"]
+            "temp": data["current"]["temperature_2m"],
+            "wind": data["current"]["wind_speed_10m"]
         }
 
     except Exception as e:
@@ -139,6 +139,62 @@ def get_weather():
         print(e)
 
         return None
+
+@st.cache_data(ttl=1800)
+def get_kpu_news():
+
+    try:
+
+        url = "https://kota-bengkulu.kpu.go.id/"
+
+        html = requests.get(
+            url,
+            headers={"User-Agent": "Mozilla/5.0"},
+            timeout=20
+        ).text
+
+        soup = BeautifulSoup(html, "html.parser")
+
+        berita = []
+
+        rows = soup.find_all("div", class_="content")
+
+        for row in rows:
+
+            try:
+
+                judul = row.find("h4").get_text(strip=True)
+
+                ringkasan = row.find("p").get_text(strip=True)[:300]
+
+                link = row.find("a", href=True)["href"]
+
+                parent = row.parent
+
+                gambar = parent.find("img")
+
+                img_url = ""
+
+                if gambar:
+                    img_url = gambar.get("src")
+
+                berita.append({
+                    "judul": judul,
+                    "ringkasan": ringkasan,
+                    "link": link,
+                    "gambar": img_url
+                })
+
+            except:
+                pass
+
+        return berita[:5]
+
+    except Exception as e:
+
+        st.error(f"Error berita: {e}")
+
+        return []
 
 # =====================================================
 # WAKTU
@@ -362,6 +418,7 @@ else:
 
 berita = get_kpu_news()
 
+st.write("Jumlah berita:", len(berita))
 if berita:
 
     news_json = json.dumps(berita)
