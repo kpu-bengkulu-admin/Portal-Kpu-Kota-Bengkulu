@@ -562,7 +562,7 @@ if berita:
         </script>
         """,
         height=850,
-        scrolling=true
+        scrolling=True
     )
 
 # ================= KPI =================
