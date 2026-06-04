@@ -558,7 +558,7 @@ with c1:
 with c2:
     app_card(
         "🗳️",
-        "ADU ONLINE",
+        "PENGADUAN ONLINE",
         "Pelaporan Pencatutan partai politik",
         "https://kpu-kota-bengkulu-point.base44.app/",
         "#dc2626"
