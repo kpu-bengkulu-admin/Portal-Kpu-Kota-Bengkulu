@@ -687,28 +687,3 @@ Portal Pengaduan Online dan Sistem Pelayanan Informasi Terintegrasi<br><br>
 © {datetime.now().year} KPU Kota Bengkulu
 </div>
 """, unsafe_allow_html=True)
-
-# =========================
-# TEST GOOGLE SHEETS
-# =========================
-import gspread
-from google.oauth2.service_account import Credentials
-
-def test_connection():
-    scopes = [
-        "https://www.googleapis.com/auth/spreadsheets",
-        "https://www.googleapis.com/auth/drive"
-    ]
-
-    creds = Credentials.from_service_account_info(
-        st.secrets["gcp_service_account"],
-        scopes=scopes
-    )
-
-    client = gspread.authorize(creds)
-    sheet = client.open("kpu_counter").sheet1
-
-    return sheet.get_all_values()
-
-# tampilkan hasil test
-st.write("TEST SHEETS:", test_connection())
