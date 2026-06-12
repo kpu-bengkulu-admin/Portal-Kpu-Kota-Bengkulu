@@ -201,7 +201,7 @@ setTimeout(() => {
 
 const speech =
 new SpeechSynthesisUtterance(
-"Selamat datang di Portal Resmi Komisi Pemilihan Umum Kota Bengkulu POINT. Pengaduan Online, Pelayanan Digital Terintegrasi, Akuntabel dan Profesional, KPU Kota Bengkulu Siap Melayani."
+"Selamat datang di Portal Resmi Komisi Pemilihan Umum Kota Bengkulu POINT. Pengaduan Online, Pelayanan Digital Terintegrasi, Transparan, Akuntabel dan Profesional, KPU Kota Bengkulu Siap Melayani."
 );
 
 speech.lang = "id-ID";
