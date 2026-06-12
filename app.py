@@ -79,6 +79,20 @@ st.markdown("""
     padding:2px;
 }
 
+.section-title{
+    text-align:center;
+    font-size:32px;
+    font-weight:700;
+    margin-bottom:25px;
+}
+
+.stLinkButton button{
+    width:100%;
+    border-radius:10px;
+    border:1px solid #d1d5db;
+    background:white;
+}
+
 </style>
 """, unsafe_allow_html=True)
 
@@ -666,40 +680,47 @@ def app_card(icon, title, desc, url, color):
     html = f"""
     <div style="
         background:white;
-        border-radius:22px;
+        border-radius:18px;
+        height:220px;
         padding:20px;
-        height:260px;
+        border-top:5px solid {color};
+        box-shadow:0 4px 12px rgba(0,0,0,.08);
+
         display:flex;
         flex-direction:column;
-        justify-content:space-between;
-        border-top:6px solid {color};
-        box-shadow:0 10px 25px rgba(0,0,0,.08);
+        justify-content:center;
+        align-items:center;
+        text-align:center;
     ">
 
-        <div>
-            <div style="font-size:28px">{icon}</div>
+        <div style="
+            font-size:60px;
+            margin-bottom:10px;
+        ">
+            {icon}
+        </div>
 
-            <h3 style="
-                margin:10px 0 5px 0;
-                color:#0f172a;
-            ">
-                {title}
-            </h3>
+        <div style="
+            font-size:22px;
+            font-weight:700;
+            color:#1e1b4b;
+            margin-bottom:8px;
+        ">
+            {title}
+        </div>
 
-            <p style="
-                margin:0;
-                color:#475569;
-                font-size:14px;
-                line-height:1.5;
-            ">
-                {desc}
-            </p>
+        <div style="
+            color:#64748b;
+            font-size:14px;
+            line-height:1.4;
+        ">
+            {desc}
         </div>
 
     </div>
     """
 
-    st.components.v1.html(html, height=280)
+    st.components.v1.html(html, height=230)
 
     st.link_button(
         f"🔗 Buka {title}",
