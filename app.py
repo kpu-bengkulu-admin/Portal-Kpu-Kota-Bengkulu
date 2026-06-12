@@ -403,8 +403,11 @@ header {{
 .card {{
     background:white;
     border-radius:22px;
-    padding:25px;
-    min-height:220px;
+    padding:20px;
+    height:260px;              /* ⬅️ INI KUNCI (samakan tinggi) */
+    display:flex;              /* ⬅️ pakai flex */
+    flex-direction:column;
+    justify-content:space-between;
     box-shadow:0 10px 25px rgba(0,0,0,.08);
     transition:0.3s;
 }}
@@ -662,12 +665,16 @@ def app_card(icon, title, desc, url, color):
 
     st.markdown(
         f"""
-        <div class="card" style="
-            border-top:6px solid {color};
-        ">
-            <h1>{icon}</h1>
-            <h3>{title}</h3>
-            <p>{desc}</p>
+        <div class="card" style="border-top:6px solid {color};">
+            
+            <div>
+                <h2 style="margin:0">{icon}</h2>
+                <h3 style="margin:8px 0 5px 0">{title}</h3>
+                <p style="margin:0; color:#475569; font-size:14px; line-height:1.5;">
+                    {desc}
+                </p>
+            </div>
+
         </div>
         """,
         unsafe_allow_html=True
