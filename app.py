@@ -233,6 +233,12 @@ if (speechSynthesis.getVoices().length > 0) {
 </script>
 """, height=0)
 
+components.html("""
+<script>
+alert("Script suara dijalankan");
+</script>
+""", height=0)
+
 # =====================================================
 # HELPER
 # =====================================================
