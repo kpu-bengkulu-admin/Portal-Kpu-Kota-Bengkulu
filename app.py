@@ -202,7 +202,7 @@ function startAudio() {
     window.speechSynthesis.cancel();
 
     const msg = new SpeechSynthesisUtterance(
-    "Selamat datang di Portal Resmi Komisi Pemilihan Umum Kota Bengkulu."
+    "Selamat Datang di Portal Resmi KPU Kota Bengkulu POINT • Pengaduan Online • Pelayanan Digital Terintegrasi • Transparan • Akuntabel • Profesional • Siap Melayani."
     );
 
     msg.lang = "id-ID";
