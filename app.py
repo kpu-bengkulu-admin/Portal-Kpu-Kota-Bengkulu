@@ -21,9 +21,9 @@ if not st.session_state.masuk_portal:
         background:#f8fafc;
         border-radius:20px;
     ">
-        <h1>Portal Resmi KPU Kota Bengkulu</h1>
-        <h3>POINT - Pengaduan Online dan Informasi Terintegrasi</h3>
-        <p>Transparan • Akuntabel • Profesional</p>
+        <h1>Portal Resmi KPU Kota Bengkulu POINT</h1>
+        <h3>Pengaduan Online dan Informasi Terintegrasi</h3>
+        <p>Transparan • Akuntabel • Profesional • kami siap melayani</p>
     </div>
     """, unsafe_allow_html=True)
 
