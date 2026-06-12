@@ -1,6 +1,3 @@
-if "masuk_portal" not in st.session_state:
-    st.session_state.masuk_portal = False
-
 import streamlit as st
 import streamlit.components.v1 as components
 from datetime import datetime
@@ -11,6 +8,9 @@ from bs4 import BeautifulSoup
 import json
 import gspread
 from google.oauth2.service_account import Credentials
+
+if "masuk_portal" not in st.session_state:
+    st.session_state.masuk_portal = False
 
 if not st.session_state.masuk_portal:
 
