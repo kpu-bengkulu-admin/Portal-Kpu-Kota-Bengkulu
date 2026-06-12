@@ -663,22 +663,43 @@ st.markdown("""
 # ================= CARD =================
 def app_card(icon, title, desc, url, color):
 
-    st.markdown(
-        f"""
-        <div class="card" style="border-top:6px solid {color};">
-            
-            <div>
-                <h2 style="margin:0">{icon}</h2>
-                <h3 style="margin:8px 0 5px 0">{title}</h3>
-                <p style="margin:0; color:#475569; font-size:14px; line-height:1.5;">
-                    {desc}
-                </p>
-            </div>
+    html = f"""
+    <div style="
+        background:white;
+        border-radius:22px;
+        padding:20px;
+        height:260px;
+        display:flex;
+        flex-direction:column;
+        justify-content:space-between;
+        border-top:6px solid {color};
+        box-shadow:0 10px 25px rgba(0,0,0,.08);
+    ">
 
+        <div>
+            <div style="font-size:28px">{icon}</div>
+
+            <h3 style="
+                margin:10px 0 5px 0;
+                color:#0f172a;
+            ">
+                {title}
+            </h3>
+
+            <p style="
+                margin:0;
+                color:#475569;
+                font-size:14px;
+                line-height:1.5;
+            ">
+                {desc}
+            </p>
         </div>
-        """,
-        unsafe_allow_html=True
-    )
+
+    </div>
+    """
+
+    st.components.v1.html(html, height=280)
 
     st.link_button(
         f"🔗 Buka {title}",
