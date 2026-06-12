@@ -96,12 +96,10 @@ creds = Credentials.from_service_account_info(
     scopes=SCOPES
 )
 
-st.write(st.secrets["gcp_service_account"]["client_email"])
-
 client = gspread.authorize(creds)
 
-sheet = client.open(
-    "COUNTER PORTAL KPU"
+sheet = client.open_by_key(
+    st.secrets["google_sheets"]["spreadsheet_id"]
 ).sheet1
 
 # =====================================================
