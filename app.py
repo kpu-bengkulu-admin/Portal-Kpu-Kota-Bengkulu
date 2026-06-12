@@ -6,6 +6,8 @@ import os
 import requests
 from bs4 import BeautifulSoup
 import json
+import gspread
+from google.oauth2.service_account import Credentials
 
 # =====================================================
 # CONFIG
@@ -15,22 +17,117 @@ st.set_page_config(
     page_icon="logo_kpu.png",
     layout="wide"
 )
+st.markdown("""
+<style>
+
+/* Floating Button */
+#a11y-btn{
+    position:fixed;
+    bottom:25px;
+    right:25px;
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    background:#dc2626;
+    color:white;
+    font-size:28px;
+    border:none;
+    cursor:pointer;
+    z-index:99999;
+    box-shadow:0 5px 15px rgba(0,0,0,.3);
+}
+
+/* Panel */
+#a11y-panel{
+    position:fixed;
+    bottom:95px;
+    right:25px;
+    width:260px;
+    background:white;
+    border-radius:15px;
+    padding:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,.25);
+    z-index:99999;
+    display:none;
+}
+
+#a11y-panel button{
+    width:100%;
+    margin-bottom:8px;
+    padding:10px;
+    border:none;
+    border-radius:8px;
+    background:#f1f5f9;
+    cursor:pointer;
+}
+
+.big-cursor{
+    cursor:crosshair !important;
+}
+
+.high-contrast{
+    filter:contrast(150%);
+}
+
+.grayscale{
+    filter:grayscale(100%);
+}
+
+.highlight-links a{
+    background:yellow !important;
+    color:black !important;
+    padding:2px;
+}
+
+</style>
+""", unsafe_allow_html=True)
+
 # =====================================================
-# COUNTER PENGUNJUNG
+# GOOGLE SHEET COUNTER
 # =====================================================
-COUNTER_FILE = "counter.txt"
 
-if not os.path.exists(COUNTER_FILE):
-    with open(COUNTER_FILE, "w") as f:
-        f.write("0")
+SCOPES = [
+    "https://www.googleapis.com/auth/spreadsheets",
+    "https://www.googleapis.com/auth/drive"
+]
 
-with open(COUNTER_FILE, "r") as f:
-    total_pengunjung = int(f.read())
+creds = Credentials.from_service_account_file(
+    "portal-kpu-counter-94997c1fe596.json",
+    scopes=SCOPES
+)
 
-total_pengunjung += 1
+client = gspread.authorize(creds)
 
-with open(COUNTER_FILE, "w") as f:
-    f.write(str(total_pengunjung))
+sheet = client.open(
+    "COUNTER PORTAL KPU"
+).sheet1
+
+# =====================================================
+# COUNTER PENGUNJUNG GOOGLE SHEET
+# =====================================================
+
+def tambah_pengunjung():
+
+    sheet.append_row(
+        [
+            datetime.now().strftime(
+                "%Y-%m-%d %H:%M:%S"
+            )
+        ]
+    )
+
+def get_total_pengunjung():
+
+    return max(len(sheet.col_values(1)) - 1, 0)
+
+
+if "visitor_counted" not in st.session_state:
+
+    tambah_pengunjung()
+
+    st.session_state.visitor_counted = True
+
+total_pengunjung = get_total_pengunjung()
 
 components.html(
     """
@@ -97,14 +194,50 @@ Selamat Datang di Portal Resmi KPU Kota Bengkulu POINT • Pengaduan Online • 
 </div>
 """, unsafe_allow_html=True)
 
+components.html("""
+<script>
+
+setTimeout(() => {
+
+const speech =
+new SpeechSynthesisUtterance(
+"Selamat datang di Portal Resmi Komisi Pemilihan Umum Kota Bengkulu POINT. Pengaduan Online, Pelayanan Digital Terintegrasi, Akuntabel dan Profesional, KPU Kota Bengkulu Siap Melayani."
+);
+
+speech.lang = "id-ID";
+const voices =
+window.speechSynthesis.getVoices();
+
+const indoVoice =
+voices.find(v => v.lang === "id-ID");
+
+if(indoVoice){
+    speech.voice = indoVoice;
+}
+
+speech.rate = 0.9;
+speech.pitch = 1.5;
+speech.volume = 1.0;
+
+window.speechSynthesis.speak(speech);
+
+}, 2000);
+
+</script>
+""", height=0)
+
 # =====================================================
 # HELPER
 # =====================================================
 def image_to_base64(path):
     with open(path, "rb") as f:
         return base64.b64encode(f.read()).decode()
+def audio_to_base64(path):
+    with open(path, "rb") as f:
+        return base64.b64encode(f.read()).decode()
 
 logo_b64 = image_to_base64("logo_kpu.png")
+audio_b64 = audio_to_base64("mars_kpu.mp3")
 
 @st.cache_data(ttl=1800)
 def get_kpu_news():
@@ -330,12 +463,14 @@ Pengaduan Online & Pelayanan Informasi Terintegrasi
 """,
     unsafe_allow_html=True
 )
+st.markdown("### 🎵 Mars Komisi Pemilihan Umum")
+st.audio("mars_kpu.mp3")
 
 # ================= NEWS CAROUSEL =================
 
 berita = get_kpu_news()
 
-st.write("Jumlah berita:", len(berita))
+#st.write("Jumlah berita:", len(berita))
 if berita:
 
     news_json = json.dumps(berita)
@@ -377,7 +512,8 @@ if berita:
                             style="
                                 width:100%;
                                 height:280px;
-                                object-fit:cover;
+                                object-fit:contain;
+                                background:white;
                             ">
                     </div>
 
@@ -684,6 +820,6 @@ Portal Pengaduan Online dan Sistem Pelayanan Informasi Terintegrasi<br><br>
 👥 Total Pengunjung : <b>{total_pengunjung:,}</b><br><br>
 
 
-© {datetime.now().year} KPU Kota Bengkulu
+© 2025 KPU Kota Bengkulu
 </div>
 """, unsafe_allow_html=True)
