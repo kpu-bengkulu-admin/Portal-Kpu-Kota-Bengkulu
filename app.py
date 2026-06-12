@@ -1,3 +1,6 @@
+if "masuk_portal" not in st.session_state:
+    st.session_state.masuk_portal = False
+
 import streamlit as st
 import streamlit.components.v1 as components
 from datetime import datetime
@@ -8,6 +11,46 @@ from bs4 import BeautifulSoup
 import json
 import gspread
 from google.oauth2.service_account import Credentials
+
+if not st.session_state.masuk_portal:
+
+    st.markdown("""
+    <div style="
+        text-align:center;
+        padding:50px;
+        background:#f8fafc;
+        border-radius:20px;
+    ">
+        <h1>Portal Resmi KPU Kota Bengkulu</h1>
+        <h3>POINT - Pengaduan Online dan Informasi Terintegrasi</h3>
+        <p>Transparan • Akuntabel • Profesional</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+    if st.button("🚀 Masuk Portal", use_container_width=True):
+
+        st.session_state.masuk_portal = True
+
+        components.html("""
+        <script>
+
+        const speech = new SpeechSynthesisUtterance(
+        "Selamat datang di Portal Resmi Komisi Pemilihan Umum Kota Bengkulu POINT. Pengaduan Online, Pelayanan Digital Terintegrasi, Akuntabel dan Profesional, KPU Kota Bengkulu Siap Melayani."
+        );
+
+        speech.lang = "id-ID";
+        speech.rate = 0.9;
+        speech.pitch = 1.2;
+        speech.volume = 1.0;
+
+        window.speechSynthesis.speak(speech);
+
+        </script>
+        """, height=0)
+
+        st.rerun()
+
+    st.stop()
 
 # =====================================================
 # CONFIG
