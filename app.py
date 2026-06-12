@@ -194,7 +194,6 @@ Selamat Datang di Portal Resmi KPU Kota Bengkulu POINT • Pengaduan Online • 
 </div>
 """, unsafe_allow_html=True)
 
-if st.button("🔊 Dengarkan Sambutan"):
 components.html("""
 <script>
 
