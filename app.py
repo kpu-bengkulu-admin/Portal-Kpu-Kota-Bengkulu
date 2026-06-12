@@ -91,10 +91,12 @@ SCOPES = [
     "https://www.googleapis.com/auth/drive"
 ]
 
-creds = Credentials.from_service_account_file(
-    "portal-kpu-counter-94997c1fe596.json",
+creds = Credentials.from_service_account_info(
+    st.secrets["gcp_service_account"],
     scopes=SCOPES
 )
+
+st.write(st.secrets["gcp_service_account"]["client_email"])
 
 client = gspread.authorize(creds)
 
