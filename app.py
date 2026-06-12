@@ -658,26 +658,46 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ================= CARD =================
-def app_card(icon, title, desc, url, color):
+def app_card(icon, title, desc, link, color):
+    st.markdown(f"""
+    <a href="{link}" target="_blank" style="text-decoration:none;">
+    <div style="
+        background:white;
+        padding:20px;
+        border-radius:15px;
+        height:240px;
 
-    st.markdown(
-        f"""
-        <div class="card" style="
-            border-top:6px solid {color};
-        ">
-            <h1>{icon}</h1>
-            <h3>{title}</h3>
-            <p>{desc}</p>
+        display:flex;
+        flex-direction:column;
+        justify-content:space-between;
+
+        box-shadow:0 4px 10px rgba(0,0,0,0.1);
+        border-top:5px solid {color};
+    ">
+
+        <div style="font-size:40px;text-align:center;">
+            {icon}
         </div>
-        """,
-        unsafe_allow_html=True
-    )
 
-    st.link_button(
-        f"🔗 Buka {title}",
-        url,
-        use_container_width=True
-    )
+        <h4 style="
+            text-align:center;
+            margin:10px 0;
+            min-height:50px;
+        ">
+            {title}
+        </h4>
+
+        <p style="
+            text-align:center;
+            min-height:60px;
+            color:#555;
+        ">
+            {desc}
+        </p>
+
+    </div>
+    </a>
+    """, unsafe_allow_html=True)
 
 # ================= MENU BARIS 1 =================
 c1, c2, c3, c4 = st.columns(4)
