@@ -91,15 +91,15 @@ SCOPES = [
     "https://www.googleapis.com/auth/drive"
 ]
 
-creds = Credentials.from_service_account_info(
-    st.secrets["gcp_service_account"],
+creds = Credentials.from_service_account_file(
+    "portal-kpu-counter-7a485e58e389.json",
     scopes=SCOPES
 )
 
 client = gspread.authorize(creds)
 
-sheet = client.open_by_key(
-    st.secrets["google_sheets"]["spreadsheet_id"]
+sheet = client.open(
+    "COUNTER PORTAL KPU"
 ).sheet1
 
 # =====================================================
