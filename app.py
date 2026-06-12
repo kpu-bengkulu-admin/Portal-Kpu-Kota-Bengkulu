@@ -197,42 +197,31 @@ Selamat Datang di Portal Resmi KPU Kota Bengkulu POINT • Pengaduan Online • 
 components.html("""
 <script>
 
-function startAudio() {
+setTimeout(() => {
 
-    window.speechSynthesis.cancel();
+const speech =
+new SpeechSynthesisUtterance(
+"Selamat datang di Portal Resmi Komisi Pemilihan Umum Kota Bengkulu POINT. Pengaduan Online, Pelayanan Digital Terintegrasi, Akuntabel dan Profesional, KPU Kota Bengkulu Siap Melayani."
+);
 
-    const msg = new SpeechSynthesisUtterance(
-    "Selamat Datang di Portal Resmi KPU Kota Bengkulu POINT • Pengaduan Online • Pelayanan Digital Terintegrasi • Transparan • Akuntabel • Profesional • Siap Melayani."
-    );
+speech.lang = "id-ID";
+const voices =
+window.speechSynthesis.getVoices();
 
-    msg.lang = "id-ID";
-    msg.rate = 0.9;
-    msg.pitch = 1.0;
+const indoVoice =
+voices.find(v => v.lang === "id-ID");
 
-    speechSynthesis.speak(msg);
+if(indoVoice){
+    speech.voice = indoVoice;
 }
 
-window.onload = function() {
+speech.rate = 0.9;
+speech.pitch = 1.5;
+speech.volume = 1.0;
 
-    setTimeout(() => {
+window.speechSynthesis.speak(speech);
 
-        if (speechSynthesis.getVoices().length > 0) {
-            startAudio();
-        }
-
-    }, 3000);
-
-};
-
-speechSynthesis.onvoiceschanged = function() {
-
-    setTimeout(() => {
-
-        startAudio();
-
-    }, 1000);
-
-};
+}, 2000);
 
 </script>
 """, height=0)
