@@ -207,7 +207,7 @@ function startAudio() {
 
     msg.lang = "id-ID";
     msg.rate = 0.9;
-    msg.pitch = 1.2;
+    msg.pitch = 1.0;
 
     speechSynthesis.speak(msg);
 }
