@@ -723,11 +723,11 @@ c1, c2, c3, c4 = st.columns(4)
 
 with c1:
     app_card(
-        "🗂️",
-        "PINDAH MEMILIH 2025",
-        "Pemutakhiran Data Pemilih Berkelanjutan (PDPB) Tahun 2025",
-        "https://forms.gle/sBLgbjKQFobKusdKA/",
-        "#1e40af"
+        "📚",
+        "PPID",
+        "Pusat Pelayanan Informasi dan Dokumentasi KPU Kota Bengkulu",
+        "https://bengkulukotappid.kpu.go.id/",
+        "#475569"
     )
 
 with c2:
