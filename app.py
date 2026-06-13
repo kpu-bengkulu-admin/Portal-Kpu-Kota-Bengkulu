@@ -470,7 +470,7 @@ Pengaduan Online & Pelayanan Informasi Terintegrasi
 <br>
 
 🟢 Sistem Online &nbsp;&nbsp;&nbsp;
-⚡ 7 Aplikasi Terhubung &nbsp;&nbsp;&nbsp;
+⚡ 8 Aplikasi Terhubung &nbsp;&nbsp;&nbsp;
 
 </div>
 
@@ -652,7 +652,7 @@ with center:
     c1, c2, c3, c4 = st.columns(4)
 
     kpis = [
-        ("7", "Aplikasi"),
+        ("8", "Aplikasi"),
         ("100%", "Online"),
         ("24", "Jam Layanan"),
         (f"{total_pengunjung:,}", "Pengunjung")
@@ -795,6 +795,15 @@ with c3:
         "Pemutakhiran Data Pemilih Berkelanjutan (PDPB) Tahun 2026",
         "https://form.jotform.com/260114453918455/",
         "#0d9488"
+    )
+
+with c4:
+    app_card(
+        "⚖️",
+        "JDIH KPU KOTA BENGKULU",
+        "Jaringan Dokumentasi dan Informasi Hukum",
+        "https://jdih.kpu.go.id/bengkulu/bengkulu-kota",
+        "#b45309"
     )
 
 # HUBUNGI KAMI
