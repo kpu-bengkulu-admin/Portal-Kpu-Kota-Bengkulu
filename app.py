@@ -514,44 +514,6 @@ if berita:
                     box-shadow:0 10px 25px rgba(0,0,0,.10);
                  ">
 
-            <button id="prevBtn"
-                style="
-                position:absolute;
-                left:-80px;
-                top:50%;
-                transform:translateY(-50%);
-                z-index:100;
-                width:50px;
-                height:50px;
-                border:none;
-                border-radius:50%;
-                background:white;
-                box-shadow:0 2px 10px rgba(0,0,0,.2);
-                cursor:pointer;
-                font-size:24px;
-                ">
-                ❮
-            </button>
-
-            <button id="nextBtn"
-                style="
-                position:absolute;
-                right:-80px;
-                top:50%;
-                transform:translateY(-50%);
-                z-index:100;
-                width:50px;
-                height:50px;
-                border:none;
-                border-radius:50%;
-                background:white;
-                box-shadow:0 2px 10px rgba(0,0,0,.2);
-                cursor:pointer;
-                font-size:24px;
-                ">
-                ❯
-            </button>
-
                 <div style="
                     display:flex;
                     flex-wrap:wrap;
@@ -634,8 +596,6 @@ if berita:
         let index = 0;
 
         function tampilkanBerita() {{
-
-
 
             document.getElementById("news-img")
                 .src = berita[index].gambar;
