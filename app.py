@@ -517,15 +517,15 @@ if berita:
             <button id="prevBtn"
                 style="
                 position:absolute;
-                left:15px;
+                left:-80px;
                 top:50%;
                 transform:translateY(-50%);
-                z-index:999;
+                z-index:100;
                 width:50px;
                 height:50px;
                 border:none;
                 border-radius:50%;
-                background:rgba(255,255,255,.9);
+                background:white;
                 box-shadow:0 2px 10px rgba(0,0,0,.2);
                 cursor:pointer;
                 font-size:24px;
@@ -536,15 +536,15 @@ if berita:
             <button id="nextBtn"
                 style="
                 position:absolute;
-                right:15px;
+                right:-80px;
                 top:50%;
                 transform:translateY(-50%);
-                z-index:9999;
+                z-index:100;
                 width:50px;
                 height:50px;
                 border:none;
                 border-radius:50%;
-                background:rgba(255,255,255,.9);
+                background:white;
                 box-shadow:0 2px 10px rgba(0,0,0,.2);
                 cursor:pointer;
                 font-size:24px;
@@ -635,27 +635,7 @@ if berita:
 
         function tampilkanBerita() {{
 
-            document.getElementById("prevBtn")
-                .addEventListener("click", () => {{
 
-                    index--;
-
-                    if(index < 0)
-                        index = berita.length - 1;
-
-                    tampilkanBerita();
-                }});
-
-            document.getElementById("nextBtn")
-                .addEventListener("click", () => {{
-
-                    index++;
-
-                    if(index >= berita.length)
-                        index = 0;
-
-                    tampilkanBerita();
-                }});
 
             document.getElementById("news-img")
                 .src = berita[index].gambar;
