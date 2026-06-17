@@ -636,7 +636,7 @@ if berita:
         function tampilkanBerita() {{
 
             document.getElementById("prevBtn")
-                .addEventListener("click", () => {
+                .addEventListener("click", () => {{
 
                     index--;
 
@@ -644,10 +644,10 @@ if berita:
                         index = berita.length - 1;
 
                     tampilkanBerita();
-                });
+                }});
 
             document.getElementById("nextBtn")
-                .addEventListener("click", () => {
+                .addEventListener("click", () => {{
 
                     index++;
 
@@ -655,7 +655,7 @@ if berita:
                         index = 0;
 
                     tampilkanBerita();
-                });
+                }});
 
             document.getElementById("news-img")
                 .src = berita[index].gambar;
