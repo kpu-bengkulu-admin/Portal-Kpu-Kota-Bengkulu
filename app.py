@@ -517,15 +517,15 @@ if berita:
             <button id="prevBtn"
                 style="
                 position:absolute;
-                left:-80px;
+                left:15px;
                 top:50%;
                 transform:translateY(-50%);
-                z-index:100;
+                z-index:999;
                 width:50px;
                 height:50px;
                 border:none;
                 border-radius:50%;
-                background:white;
+                background:rgba(255,255,255,.9);
                 box-shadow:0 2px 10px rgba(0,0,0,.2);
                 cursor:pointer;
                 font-size:24px;
@@ -536,15 +536,15 @@ if berita:
             <button id="nextBtn"
                 style="
                 position:absolute;
-                right:-80px;
+                right:15px;
                 top:50%;
                 transform:translateY(-50%);
-                z-index:100;
+                z-index:9999;
                 width:50px;
                 height:50px;
                 border:none;
                 border-radius:50%;
-                background:white;
+                background:rgba(255,255,255,.9);
                 box-shadow:0 2px 10px rgba(0,0,0,.2);
                 cursor:pointer;
                 font-size:24px;
