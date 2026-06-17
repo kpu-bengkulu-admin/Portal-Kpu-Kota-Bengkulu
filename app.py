@@ -510,7 +510,7 @@ if berita:
                     position:relative;
                     background:white;
                     border-radius:25px;
-                    overflow:hidden;
+                    overflow:visible;
                     box-shadow:0 10px 25px rgba(0,0,0,.10);
                  ">
 
@@ -879,6 +879,6 @@ Portal Pengaduan Online dan Sistem Pelayanan Informasi Terintegrasi<br><br>
 👥 Total Pengunjung : <b>{total_pengunjung:,}</b><br><br>
 
 
-© 2025 KPU Kota Bengkulu
+©by.es 2025 KPU Kota Bengkulu
 </div>
 """, unsafe_allow_html=True)
