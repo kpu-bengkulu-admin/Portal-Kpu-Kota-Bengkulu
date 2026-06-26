@@ -337,10 +337,9 @@ header {{
     background:
     linear-gradient(
         135deg,
-        #7A1F1F 0%,
-        #681818 35%,
-        #561313 70%,
-        #300B0C 100%
+        #f8fafc 0%,
+        #eef2ff 50%,
+        #f1f5f9 100%
     );
 }}
 
