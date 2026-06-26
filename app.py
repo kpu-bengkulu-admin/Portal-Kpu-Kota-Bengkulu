@@ -337,9 +337,10 @@ header {{
     background:
     linear-gradient(
         135deg,
-        #f8fafc 0%,
-        #eef2ff 50%,
-        #f1f5f9 100%
+        #7A1F1F 0%,
+        #681818 35%,
+        #561313 70%,
+        #300B0C 100%
     );
 }}
 
@@ -352,10 +353,11 @@ header {{
 .hero {{
     background:
     linear-gradient(
-        135deg,
-        #0f172a 0%,
-        #1e3a8a 45%,
-        #dc2626 100%
+        180deg,
+        #7A1F1F 0%,
+        #681818 40%,
+        #561313 75%,
+        #300B0C 100%
     );
 
     border-radius:20px;
@@ -397,7 +399,7 @@ header {{
 .kpi-number {{
     font-size:36px;
     font-weight:900;
-    color:#1e3a8a;
+    color:##B8860B;
 }}
 
 .kpi-label {{
@@ -409,7 +411,7 @@ header {{
     text-align:center;
     font-size:30px;
     font-weight:800;
-    color:#0f172a;
+    color:#F9D48C;
     margin-top:25px;
     margin-bottom:20px;
 }}
