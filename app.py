@@ -151,6 +151,10 @@ components.html(
 
     <style>
     #clockbar{
+        position:sticky;
+        top:0;
+        z-index:9999;
+
         background:#0f172a;
         color:white;
         padding:10px 20px;
@@ -483,12 +487,6 @@ Pengaduan Online & Pelayanan Informasi Terintegrasi
 )
 st.markdown("### 🎵 Mars Komisi Pemilihan Umum")
 st.audio("mars_kpu.mp3")
-
-import streamlit.components.v1 as components
-
-components.html("""
-<script src="https://cdn.jotfor.ms/agent/embedjs/019b72564f6f7bfbb8c287661ddd2641ff95/embed.js"></script>
-""", height=0)
 
 # ================= NEWS CAROUSEL =================
 
