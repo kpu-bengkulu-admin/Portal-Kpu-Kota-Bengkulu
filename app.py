@@ -459,7 +459,7 @@ st.markdown(
 <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
 
 <div>
-<img src="data:image/png;base64,{logo_b64}" width="200">
+<img src="data:image/png;base64,{logo_b64}" width="150">
 </div>
 
 <div>
