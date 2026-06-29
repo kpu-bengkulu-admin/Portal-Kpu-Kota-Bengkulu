@@ -348,9 +348,11 @@ header {{
 }}
 
 .block-container {{
-    max-width:1400px;
-    padding-top:1rem;
-    padding-bottom:1rem;
+    max-width:100%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;m;
 }}
 
 .hero {{
