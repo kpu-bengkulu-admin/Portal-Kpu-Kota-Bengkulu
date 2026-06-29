@@ -8,7 +8,6 @@ from bs4 import BeautifulSoup
 import json
 import gspread
 from google.oauth2.service_account import Credentials
-import webbrowser
 
 # =====================================================
 # CONFIG
@@ -796,94 +795,13 @@ with c2:
     )
 
 with c3:
-
-    html = """
-    <div style="
-        background:white;
-        border-radius:18px;
-        height:220px;
-        padding:20px;
-        border-top:5px solid #0d9488;
-        box-shadow:0 4px 12px rgba(0,0,0,.08);
-
-        display:flex;
-        flex-direction:column;
-        justify-content:center;
-        align-items:center;
-        text-align:center;
-    ">
-
-        <div style="
-            font-size:60px;
-            margin-bottom:10px;
-        ">
-            🗂️
-        </div>
-
-        <div style="
-            font-size:22px;
-            font-weight:700;
-            color:#1e1b4b;
-            margin-bottom:8px;
-        ">
-            SITAPEL
-        </div>
-
-        <div style="
-            color:#64748b;
-            font-size:14px;
-            line-height:1.4;
-        ">
-            Pemutakhiran Data Pemilih Berkelanjutan (PDPB) Tahun 2026
-        </div>
-
-    </div>
-    """
-
-    st.components.v1.html(
-        html,
-        height=230
+    app_card(
+        "🗂️",
+        "SITAPEL",
+        "Pemutakhiran Data Pemilih Berkelanjutan (PDPB) Tahun 2026",
+        "https://form.jotform.com/260114453918455/",
+        "#0d9488"
     )
-
-    if st.button(
-        "🔗 Buka SITAPEL",
-        use_container_width=True
-    ):
-
-        st.session_state.show_sitapel = True
-
-if st.session_state.get("show_sitapel", False):
-
-    st.subheader("📝 Identitas Pengunjung")
-
-    nama = st.text_input(
-        "Nama"
-    )
-
-    instansi = st.text_input(
-        "Instansi"
-    )
-
-    keperluan = st.text_area(
-        "Keperluan"
-    )
-
-    if st.button(
-        "Lanjut ke SITAPEL"
-    ):
-
-        st.success(
-            "Data berhasil diterima."
-        )
-
-        st.markdown("""
-        <script>
-        window.open(
-            "https://form.jotform.com/260114453918455/",
-            "_blank"
-        );
-        </script>
-        """, unsafe_allow_html=True)
 
 with c4:
     app_card(
