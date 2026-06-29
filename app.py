@@ -741,7 +741,7 @@ with c1:
     app_card(
         "📊",
         "E-KINERJA",
-        "Monitoring Kinerja Pegawai",
+        "Monitoring kinerja pegawai",
         "https://aplikasi-kinerja-kpu-kota-bengkulu.streamlit.app",
         "#2563eb"
     )
@@ -749,8 +749,8 @@ with c1:
 with c2:
     app_card(
         "🗳️",
-        "SIPOINT",
-        "Pelaporan Pencatutan Partai Politik",
+        "PENGADUAN ONLINE",
+        "Pelaporan Pencatutan partai politik",
         "https://kpu-kota-bengkulu-point.base44.app/",
         "#dc2626"
     )
@@ -759,7 +759,7 @@ with c3:
     app_card(
         "📋",
         "CEK DPT",
-        "Data Pemilih Nasional",
+        "Data pemilih nasional",
         "https://cekdptonline.kpu.go.id/",
         "#16a34a"
     )
@@ -768,7 +768,7 @@ with c4:
     app_card(
         "📨",
         "SP4N LAPOR",
-        "Pngaduan Layanan Nasional",
+        "Aspirasi masyarakat",
         "https://www.lapor.go.id/",
         "#9333ea"
     )
