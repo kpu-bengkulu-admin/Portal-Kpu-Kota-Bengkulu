@@ -749,8 +749,8 @@ with c1:
 with c2:
     app_card(
         "🗳️",
-        "PENGADUAN ONLINE",
-        "Pelaporan Pencatutan partai politik",
+        "SITAPEL",
+        "Pelaporan Pencatutan Partai Politik",
         "https://kpu-kota-bengkulu-point.base44.app/",
         "#dc2626"
     )
@@ -759,7 +759,7 @@ with c3:
     app_card(
         "📋",
         "CEK DPT",
-        "Data pemilih nasional",
+        "Data Pemilih Nasional",
         "https://cekdptonline.kpu.go.id/",
         "#16a34a"
     )
@@ -768,7 +768,7 @@ with c4:
     app_card(
         "📨",
         "SP4N LAPOR",
-        "Aspirasi masyarakat",
+        "Pelayanan Pengaduan Publik Nasional",
         "https://www.lapor.go.id/",
         "#9333ea"
     )
