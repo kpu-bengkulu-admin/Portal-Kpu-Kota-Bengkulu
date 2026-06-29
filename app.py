@@ -348,7 +348,7 @@ header {{
 }}
 
 .block-container {{
-    max-width:100%;
+    max-width:2000px;
     padding-top:1rem;
     padding-bottom:1rem;
 }}
