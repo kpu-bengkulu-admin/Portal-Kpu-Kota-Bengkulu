@@ -456,83 +456,35 @@ st.markdown(
     f"""
 <div class="hero">
 
-<div style="
-    background:linear-gradient(135deg,#8b1e1e,#4d0f0f);
-    border-radius:24px;
-    padding:35px 45px;
-    box-shadow:0 12px 30px rgba(0,0,0,.20);
-">
+<div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
 
-    <div style="
-        display:flex;
-        align-items:center;
-        gap:35px;
-    ">
+<div>
+<img src="data:image/png;base64,{logo_b64}" width="90">
+</div>
 
-        <img src="{logo_base64}"
-            style="
-                width:120px;
-                height:120px;
-                object-fit:contain;
-            ">
+<div>
 
-        <div style="flex:1;">
+<div class="hero-title">
+PORTAL RESMI KPU KOTA BENGKULU POINT
+</div>
 
-            <div style="
-                font-size:56px;
-                font-weight:800;
-                color:white;
-                line-height:1.1;
-            ">
-                PORTAL RESMI KPU KOTA BENGKULU POINT
-            </div>
+<div class="hero-sub">
+Pengaduan Online & Pelayanan Informasi Terintegrasi
+</div>
 
-            <div style="
-                color:white;
-                font-size:22px;
-                margin-top:12px;
-                opacity:.95;
-            ">
-                Pengaduan Online & Pelayanan Informasi Terintegrasi
-            </div>
+<br>
 
-            <div style="
-                margin-top:25px;
-                display:flex;
-                gap:15px;
-                flex-wrap:wrap;
-            ">
-
-                <span style="
-                    background:#16a34a;
-                    color:white;
-                    padding:8px 18px;
-                    border-radius:999px;
-                    font-size:16px;
-                    font-weight:700;
-                ">
-                    🟢 Sistem Online
-                </span>
-
-                <span style="
-                    background:#f59e0b;
-                    color:white;
-                    padding:8px 18px;
-                    border-radius:999px;
-                    font-size:16px;
-                    font-weight:700;
-                ">
-                    ⚡ 8 Aplikasi Terhubung
-                </span>
-
-            </div>
-
-        </div>
-
-    </div>
+🟢 Sistem Online &nbsp;&nbsp;&nbsp;
+⚡ 8 Aplikasi Terhubung &nbsp;&nbsp;&nbsp;
 
 </div>
 
+</div>
+
+</div>
+""",
+    unsafe_allow_html=True
+)
 st.markdown("### 🎵 Mars Komisi Pemilihan Umum")
 st.audio("mars_kpu.mp3")
 
