@@ -799,7 +799,7 @@ with c3:
         "🗂️",
         "SITAPEL",
         "Pemutakhiran Data Pemilih Berkelanjutan (PDPB) Tahun 2026",
-        "https://aplikasi-sitapel-kpu-kota-bengkulu.streamlit.app/",
+        "https://forms.gle/2jHtWH9drHk8yxbN7",
         "#0d9488"
     )
 
