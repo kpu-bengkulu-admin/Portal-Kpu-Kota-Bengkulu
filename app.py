@@ -798,7 +798,7 @@ with c3:
     app_card(
         "🗂️",
         "SITAPEL",
-        "Pemutakhiran Data Pemilih Berkelanjutan (PDPB) Tahun 2026",
+        "Aplikasi Tanggap Pemilih untuk Pemutakhiran Data Pemilih Berkelanjutan (PDPB) Tahun 2026",
         "https://aplikasi-sitapel-kpu-kota-bengkulu.streamlit.app/",
         "#0d9488"
     )
