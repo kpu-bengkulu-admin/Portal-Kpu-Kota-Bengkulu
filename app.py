@@ -389,6 +389,13 @@ header {{
     border-radius:22px;
     box-shadow:0 10px 25px rgba(0,0,0,.12);
 }}
+/* Hilangkan tombol fullscreen gambar */
+
+button[title="View fullscreen"],
+button[data-testid="StyledFullScreenButton"],
+div[data-testid="StyledFullScreenButton"] {{
+    display:none !important;
+}}
 
 .kpi {{
     background:white;
@@ -443,6 +450,65 @@ header {{
     font-size:14px;
 }}
 
+
+/* ======================================================
+   MAKLUMAT PELAYANAN
+====================================================== */
+
+.maklumat-card {{
+
+background:white;
+
+border:1px solid #dbe4f0;
+
+border-radius:14px;
+
+padding:14px 18px;
+
+margin:10px 0 18px 0;
+
+box-shadow:0 6px 18px rgba(0,0,0,.06);
+
+}}
+
+.maklumat-title {{
+
+font-size:38px;
+
+font-weight:900;
+
+color:#7A1F1F;
+
+margin-bottom:14px;
+
+line-height:1.2;
+
+letter-spacing:0.5px;
+
+}}
+
+.maklumat-text {{
+
+font-size:16px;
+
+color:#444;
+
+line-height:1.8;
+
+text-align:justify;
+
+}}
+
+.maklumat-note {{
+
+font-size:13px;
+
+color:#888;
+
+margin-top:10px;
+
+}}
+
 </style>
 """,
     unsafe_allow_html=True
@@ -487,6 +553,194 @@ Pengaduan Online & Pelayanan Informasi Terintegrasi
 )
 st.markdown("### 🎵 Mars Komisi Pemilihan Umum")
 st.audio("mars_kpu.mp3")
+
+from PIL import Image
+
+with st.container(border=True):
+
+    col1, col2 = st.columns(
+        [0.7, 2.3],
+        gap="medium"
+    )
+
+    with col1:
+
+        with open("maklumat.jpg", "rb") as f:
+            img_b64 = base64.b64encode(f.read()).decode()
+
+        st.markdown(
+            f"""
+            <img
+                src="data:image/jpeg;base64,{img_b64}"
+                width="220"
+                style="
+                    border-radius:12px;
+                    box-shadow:0 4px 12px rgba(0,0,0,.15);
+                ">
+            """,
+            unsafe_allow_html=True
+        )
+
+    with col2:
+
+        st.markdown(
+            '<div class="maklumat-title">📜 Maklumat Pelayanan</div>',
+            unsafe_allow_html=True
+        )
+
+        st.markdown(
+            """
+            <div class="maklumat-text">
+
+            Komisi Pemilihan Umum Kota Bengkulu berkomitmen
+            memberikan pelayanan publik yang profesional,
+            transparan, cepat, mudah, dan akuntabel sesuai
+            standar pelayanan yang telah ditetapkan.
+
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+
+# ================= TITLE =================
+st.markdown("""
+<div class="section-title">
+🚀 Akses Pengaduan dan Aplikasi Pelayanan Terintegrasi
+</div>
+""", unsafe_allow_html=True)
+
+# ================= CARD =================
+def app_card(icon, title, desc, url, color):
+
+    html = f"""
+    <div style="
+        background:white;
+        border-radius:18px;
+        height:220px;
+        padding:20px;
+        border-top:5px solid {color};
+        box-shadow:0 4px 12px rgba(0,0,0,.08);
+
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        text-align:center;
+    ">
+
+        <div style="
+            font-size:60px;
+            margin-bottom:10px;
+        ">
+            {icon}
+        </div>
+
+        <div style="
+            font-size:22px;
+            font-weight:700;
+            color:#1e1b4b;
+            margin-bottom:8px;
+        ">
+            {title}
+        </div>
+
+        <div style="
+            color:#64748b;
+            font-size:14px;
+            line-height:1.4;
+        ">
+            {desc}
+        </div>
+
+    </div>
+    """
+
+    st.components.v1.html(html, height=230)
+
+    st.link_button(
+        f"🔗 Buka {title}",
+        url,
+        use_container_width=True
+    )
+
+# ================= MENU BARIS 1 =================
+c1, c2, c3, c4 = st.columns(4)
+
+with c1:
+    app_card(
+        "📊",
+        "E-KINERJA",
+        "Monitoring kinerja pegawai",
+        "https://aplikasi-kinerja-kpu-kota-bengkulu.streamlit.app",
+        "#2563eb"
+    )
+
+with c2:
+    app_card(
+        "🗳️",
+        "SIPOINT",
+        "Pelaporan Pencatutan Partai Politik",
+        "https://kpu-kota-bengkulu-point.base44.app/",
+        "#dc2626"
+    )
+
+with c3:
+    app_card(
+        "📋",
+        "CEK DPT",
+        "Data Pemilih Nasional",
+        "https://cekdptonline.kpu.go.id/",
+        "#16a34a"
+    )
+
+with c4:
+    app_card(
+        "📨",
+        "SP4N LAPOR",
+        "Pelayanan Pengaduan Publik Nasional",
+        "https://www.lapor.go.id/",
+        "#9333ea"
+    )
+
+# ================= MENU BARIS 2 =================
+c1, c2, c3, c4 = st.columns(4)
+
+with c1:
+    app_card(
+        "📚",
+        "PPID",
+        "Pusat Pelayanan Informasi dan Dokumentasi KPU Kota Bengkulu",
+        "https://bengkulukotappid.kpu.go.id/",
+        "#475569"
+    )
+
+with c2:
+    app_card(
+        "⭐",
+        "SKM",
+        "Kuesioner Survei Kepuasan Masyarakat pada Unit Layanan KPU Kota Bengkulu",
+        "https://forms.gle/YErvV9ArS9M8hZVb9/",
+        "#f59e0b"
+    )
+
+with c3:
+    app_card(
+        "🗂️",
+        "SITAPEL",
+        "Aplikasi Tanggap Pemilih untuk Pemutakhiran Data Pemilih Berkelanjutan (PDPB) Tahun 2026",
+        "https://aplikasi-sitapel-kpu-kota-bengkulu.streamlit.app/",
+        "#0d9488"
+    )
+
+with c4:
+    app_card(
+        "⚖️",
+        "JDIH KPU KOTA BENGKULU",
+        "Jaringan Dokumentasi dan Informasi Hukum",
+        "https://jdih.kpu.go.id/bengkulu/bengkulu-kota",
+        "#b45309"
+    )
+
 
 # ================= NEWS CAROUSEL =================
 
@@ -673,144 +927,8 @@ with center:
             </div>
             """, unsafe_allow_html=True)
 
-# ================= TITLE =================
-st.markdown("""
-<div class="section-title">
-🚀 Akses Pengaduan dan Aplikasi Pelayanan Terintegrasi
-</div>
-""", unsafe_allow_html=True)
 
-# ================= CARD =================
-def app_card(icon, title, desc, url, color):
 
-    html = f"""
-    <div style="
-        background:white;
-        border-radius:18px;
-        height:220px;
-        padding:20px;
-        border-top:5px solid {color};
-        box-shadow:0 4px 12px rgba(0,0,0,.08);
-
-        display:flex;
-        flex-direction:column;
-        justify-content:center;
-        align-items:center;
-        text-align:center;
-    ">
-
-        <div style="
-            font-size:60px;
-            margin-bottom:10px;
-        ">
-            {icon}
-        </div>
-
-        <div style="
-            font-size:22px;
-            font-weight:700;
-            color:#1e1b4b;
-            margin-bottom:8px;
-        ">
-            {title}
-        </div>
-
-        <div style="
-            color:#64748b;
-            font-size:14px;
-            line-height:1.4;
-        ">
-            {desc}
-        </div>
-
-    </div>
-    """
-
-    st.components.v1.html(html, height=230)
-
-    st.link_button(
-        f"🔗 Buka {title}",
-        url,
-        use_container_width=True
-    )
-
-# ================= MENU BARIS 1 =================
-c1, c2, c3, c4 = st.columns(4)
-
-with c1:
-    app_card(
-        "📊",
-        "E-KINERJA",
-        "Monitoring kinerja pegawai",
-        "https://aplikasi-kinerja-kpu-kota-bengkulu.streamlit.app",
-        "#2563eb"
-    )
-
-with c2:
-    app_card(
-        "🗳️",
-        "SIPOINT",
-        "Pelaporan Pencatutan Partai Politik",
-        "https://kpu-kota-bengkulu-point.base44.app/",
-        "#dc2626"
-    )
-
-with c3:
-    app_card(
-        "📋",
-        "CEK DPT",
-        "Data Pemilih Nasional",
-        "https://cekdptonline.kpu.go.id/",
-        "#16a34a"
-    )
-
-with c4:
-    app_card(
-        "📨",
-        "SP4N LAPOR",
-        "Pelayanan Pengaduan Publik Nasional",
-        "https://www.lapor.go.id/",
-        "#9333ea"
-    )
-
-# ================= MENU BARIS 2 =================
-c1, c2, c3, c4 = st.columns(4)
-
-with c1:
-    app_card(
-        "📚",
-        "PPID",
-        "Pusat Pelayanan Informasi dan Dokumentasi KPU Kota Bengkulu",
-        "https://bengkulukotappid.kpu.go.id/",
-        "#475569"
-    )
-
-with c2:
-    app_card(
-        "⭐",
-        "SKM",
-        "Kuesioner Survei Kepuasan Masyarakat pada Unit Layanan KPU Kota Bengkulu",
-        "https://forms.gle/YErvV9ArS9M8hZVb9/",
-        "#f59e0b"
-    )
-
-with c3:
-    app_card(
-        "🗂️",
-        "SITAPEL",
-        "Aplikasi Tanggap Pemilih untuk Pemutakhiran Data Pemilih Berkelanjutan (PDPB) Tahun 2026",
-        "https://aplikasi-sitapel-kpu-kota-bengkulu.streamlit.app/",
-        "#0d9488"
-    )
-
-with c4:
-    app_card(
-        "⚖️",
-        "JDIH KPU KOTA BENGKULU",
-        "Jaringan Dokumentasi dan Informasi Hukum",
-        "https://jdih.kpu.go.id/bengkulu/bengkulu-kota",
-        "#b45309"
-    )
 
 # HUBUNGI KAMI
 
