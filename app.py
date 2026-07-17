@@ -616,31 +616,33 @@ def app_card(icon, title, desc, url, color):
     <style>
     .card {{
         background:white;
-        border-radius:18px;
-        height:340px;
-        border-top:5px solid {color};
-        box-shadow:0 4px 14px rgba(0,0,0,.08);
-
+        border-radius:22px;
+        padding:20px;
+        height:290px;
         display:flex;
         flex-direction:column;
         justify-content:space-between;
-
+        box-shadow:0 10px 25px rgba(0,0,0,.08);
         transition:.3s;
         overflow:hidden;
     }}
 
     .card:hover {{
         transform:translateY(-6px);
-        box-shadow:0 12px 28px rgba(0,0,0,.18);
+        box-shadow:0 15px 30px rgba(0,0,0,.18);
     }}
 
     .content {{
-        padding:25px;
+        flex:1;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
         text-align:center;
     }}
 
     .icon {{
-        font-size:60px;
+        font-size:68px;
         margin-bottom:12px;
     }}
 
@@ -648,14 +650,22 @@ def app_card(icon, title, desc, url, color):
         font-size:22px;
         font-weight:700;
         color:#1e1b4b;
-        margin-bottom:10px;
+        min-height:60px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        text-align:center;
     }}
 
     .desc {{
         color:#64748b;
         font-size:14px;
         line-height:1.5;
-        min-height:60px;
+        min-height:70px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        text-align:center;
     }}
 
     .btn {{
@@ -673,7 +683,9 @@ def app_card(icon, title, desc, url, color):
 
     .btn:hover {{
         filter:brightness(1.08);
+        transform:scale(1.02);
     }}
+
     </style>
 
     <div class="card">
