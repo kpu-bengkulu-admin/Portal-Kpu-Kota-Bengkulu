@@ -613,55 +613,93 @@ st.markdown("""
 def app_card(icon, title, desc, url, color):
 
     html = f"""
-    <div style="
+    <style>
+    .card {{
         background:white;
         border-radius:18px;
-        height:220px;
-        padding:20px;
+        height:340px;
         border-top:5px solid {color};
-        box-shadow:0 4px 12px rgba(0,0,0,.08);
+        box-shadow:0 4px 14px rgba(0,0,0,.08);
 
         display:flex;
         flex-direction:column;
-        justify-content:center;
-        align-items:center;
+        justify-content:space-between;
+
+        transition:.3s;
+        overflow:hidden;
+    }}
+
+    .card:hover {{
+        transform:translateY(-6px);
+        box-shadow:0 12px 28px rgba(0,0,0,.18);
+    }}
+
+    .content {{
+        padding:25px;
         text-align:center;
-    ">
+    }}
 
-        <div style="
-            font-size:60px;
-            margin-bottom:10px;
-        ">
-            {icon}
+    .icon {{
+        font-size:60px;
+        margin-bottom:12px;
+    }}
+
+    .title {{
+        font-size:22px;
+        font-weight:700;
+        color:#1e1b4b;
+        margin-bottom:10px;
+    }}
+
+    .desc {{
+        color:#64748b;
+        font-size:14px;
+        line-height:1.5;
+        min-height:60px;
+    }}
+
+    .btn {{
+        display:block;
+        width:100%;
+        background:{color};
+        color:white !important;
+        text-decoration:none;
+        text-align:center;
+        padding:16px;
+        font-size:18px;
+        font-weight:700;
+        transition:.3s;
+    }}
+
+    .btn:hover {{
+        filter:brightness(1.08);
+    }}
+    </style>
+
+    <div class="card">
+
+        <div class="content">
+
+            <div class="icon">{icon}</div>
+
+            <div class="title">
+                {title}
+            </div>
+
+            <div class="desc">
+                {desc}
+            </div>
+
         </div>
 
-        <div style="
-            font-size:22px;
-            font-weight:700;
-            color:#1e1b4b;
-            margin-bottom:8px;
-        ">
-            {title}
-        </div>
-
-        <div style="
-            color:#64748b;
-            font-size:14px;
-            line-height:1.4;
-        ">
-            {desc}
-        </div>
+        <a class="btn" href="{url}" target="_blank">
+            🔗 Buka {title}
+        </a>
 
     </div>
     """
 
-    st.components.v1.html(html, height=230)
-
-    st.link_button(
-        f"🔗 Buka {title}",
-        url,
-        use_container_width=True
-    )
+    components.html(html, height=350)
 
 # ================= MENU BARIS 1 =================
 c1, c2, c3, c4 = st.columns(4)
