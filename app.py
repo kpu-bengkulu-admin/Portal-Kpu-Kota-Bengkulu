@@ -679,6 +679,7 @@ def app_card(icon, title, desc, url, color):
         font-size:18px;
         font-weight:700;
         transition:.3s;
+        box-sizing:border-box;
     }}
 
     .btn:hover {{
